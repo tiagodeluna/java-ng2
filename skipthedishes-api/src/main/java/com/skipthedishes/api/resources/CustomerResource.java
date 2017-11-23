@@ -31,4 +31,12 @@ public class CustomerResource {
 
     }
 
+    @GetMapping(params = "name")
+    public ResponseEntity<List<Customer>> findByFirstNameContains(@RequestParam(name = "name") String name) {
+        List<Customer> customerList = customerRepository.find(name);
+        return customerList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(customerList);
+
+    }
+
+
 }
