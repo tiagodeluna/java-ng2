@@ -22,7 +22,7 @@ public class Restaurant {
     private String address;
 
 
-    private Set<String> tags;
+    private Set<TagsEnum> tags;
 
 
     private Set<Dish> dishes;
