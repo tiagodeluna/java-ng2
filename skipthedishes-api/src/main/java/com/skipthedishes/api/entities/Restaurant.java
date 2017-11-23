@@ -14,6 +14,7 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode(of = "id")
 public class Restaurant {
+
     @Id
     private String id;
 
@@ -21,9 +22,7 @@ public class Restaurant {
     
     private String address;
 
-
     private Set<TagsEnum> tags;
-
 
     private Set<Dish> dishes;
 

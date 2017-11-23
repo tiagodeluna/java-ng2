@@ -15,11 +15,16 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode(of = "id")
 public class Order {
+
     @Id
     private String id;
+
     private LocalDateTime date;
+
     private Double total;
+
     private String reviewText;
+
     private Integer reviewRating;
 
     private Customer customer;

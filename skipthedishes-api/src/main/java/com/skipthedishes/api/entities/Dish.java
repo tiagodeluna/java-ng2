@@ -22,8 +22,7 @@ public class Dish {
 
     private String description;
 
-    private Set<String> tags;
-
+    private Set<TagsEnum> tags;
 
     private Double rating;
 

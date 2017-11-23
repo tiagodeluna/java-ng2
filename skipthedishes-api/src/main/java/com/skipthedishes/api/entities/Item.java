@@ -17,8 +17,12 @@ public class Item {
 
     @Id
     private String id;
+
     private int amount;
+
     private Integer reviewRating;
+
     private Dish dish;
+
     private Order order;
 }
