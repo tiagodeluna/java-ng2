@@ -9,12 +9,13 @@ import org.springframework.data.annotation.Id;
 @Setter
 @EqualsAndHashCode(of = "id")
 public class Customer {
+
     @Id
-    public String id;
+    private String id;
 
-    public String firstName;
+    private String firstName;
 
-    public String lastName;
+    private String lastName;
 
 
 }
