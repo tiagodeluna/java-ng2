@@ -5,19 +5,24 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.Set;
+
+/**
+ * Created by igorhara on 23/11/2017.
+ */
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Customer {
+public class Dish {
 
     @Id
     private String id;
 
-    private String firstName;
+    private String name;
 
-    private String lastName;
+    private String description;
 
-    private Integer points=0;
+    private Set<String> tags;
 
 
 }
