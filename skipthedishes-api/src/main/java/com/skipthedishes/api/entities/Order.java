@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 /**
@@ -13,21 +14,16 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Restaurant {
+public class Order {
     @Id
     private String id;
+    private LocalDateTime date;
+    private Double total;
+    private String reviewText;
+    private Integer reviewRating;
 
-    private String name;
-    
-    private String address;
+    private Customer customer;
 
-
-    private Set<String> tags;
-
-
-    private Set<Dish> dishes;
-
-    
-
+    private Set<Item> items;
 
 }

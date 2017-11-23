@@ -1,6 +1,7 @@
 package com.skipthedishes.api.repositories.customer;
 
 import com.skipthedishes.api.entities.Customer;
+import com.skipthedishes.api.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
