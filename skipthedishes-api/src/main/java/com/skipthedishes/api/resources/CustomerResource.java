@@ -24,6 +24,12 @@ public class CustomerResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
     }
 
+    @PostMapping(path = "bulk")
+    public ResponseEntity<List<Customer>> createBulk( @RequestBody List<Customer> customers) {
+        customers.stream().forEach(customerRepository::save);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customers);
+    }
+
     @GetMapping
     public ResponseEntity<List<Customer>> findAll() {
         List<Customer> customerList = customerRepository.findAll();
