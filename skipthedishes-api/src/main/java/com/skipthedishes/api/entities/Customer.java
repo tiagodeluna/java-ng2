@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -17,7 +19,11 @@ public class Customer {
 
     private String lastName;
 
-    private Integer points=0;
+    private Integer dishCoin=0;
+
+    private Set<Dish> favoriteDishes;
+
+    private Set<Restaurant> favoriteRestaurants;
 
 
 }

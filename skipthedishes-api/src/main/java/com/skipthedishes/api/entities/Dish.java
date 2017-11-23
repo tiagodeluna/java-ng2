@@ -25,4 +25,7 @@ public class Dish {
     private Set<String> tags;
 
 
+    private Double rating;
+
+
 }
