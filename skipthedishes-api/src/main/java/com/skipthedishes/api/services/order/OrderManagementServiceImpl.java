@@ -43,7 +43,7 @@ public class OrderManagementServiceImpl implements OrderManagementService {
         
         //Check if order total is valid
         if (order.getTotal() == null || order.getTotal() <= 0) {
-        	throw new InvalidOrderTotalException();
+        	throw new InvalidOrderTotalException(order.getTotal());
         }
 
         Customer customer = order.getCustomer();
