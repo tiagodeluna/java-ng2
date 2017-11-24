@@ -2,12 +2,10 @@ package com.skipthedishes.api.entities;
 
 import lombok.Getter;
 
-import java.util.Arrays;
-
 @Getter
 public enum TagsEnum {
 
-    SANDWICH("Sandwish"),
+    SANDWICH("Sandwich"),
     JAPANESE("Japanese"),
     LUNCH("Lunch"),
     ITALIAN("Italian"),
