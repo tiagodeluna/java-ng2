@@ -19,7 +19,7 @@ public class Restaurant {
     private String id;
 
     private String name;
-    
+
     private String address;
 
     private String timeToWait;
@@ -29,8 +29,5 @@ public class Restaurant {
     private Set<TagsEnum> tags;
 
     private Set<Dish> dishes;
-
-    
-
 
 }

@@ -12,6 +12,4 @@ public interface RestaurantRepository extends MongoRepository<Restaurant, String
 
     List<Restaurant> findByNameOrTags(String value);
 
-
-
 }

@@ -33,6 +33,11 @@ public class RestaurantResource {
     public ResponseEntity<List<Restaurant>> findAll() {
         List<Restaurant> restaurantList = restaurantRepository.findAll();
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
+    }
 
+    @GetMapping(params = "text")
+    public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text) {
+        List<Restaurant> restaurantList = restaurantRepository.find(text);
+        return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 }
