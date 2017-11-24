@@ -29,7 +29,7 @@ public class Customer {
         this.dishCoin += amount != null ? amount.intValue() : 0;
     }
 
-    public Boolean debitDishCoins(Double amount) {
+    public Boolean spendDishCoins(Double amount) {
         if (amount != null && amount <= this.dishCoin) {
             this.dishCoin -= amount.intValue();
             return Boolean.TRUE;
