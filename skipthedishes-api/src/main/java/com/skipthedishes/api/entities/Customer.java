@@ -25,5 +25,16 @@ public class Customer {
 
     private Set<Restaurant> favoriteRestaurants;
 
+    public void accumulateDishCoins(Double amount) {
+        this.dishCoin += amount != null ? amount.intValue() : 0;
+    }
 
+    public Boolean debitDishCoins(Double amount) {
+        if (amount != null && amount <= this.dishCoin) {
+            this.dishCoin -= amount.intValue();
+            return Boolean.TRUE;
+        }
+
+        return Boolean.FALSE;
+    }
 }

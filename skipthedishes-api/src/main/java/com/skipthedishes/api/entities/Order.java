@@ -23,6 +23,8 @@ public class Order {
 
     private Double total;
 
+    private PaymentMethodsEnum paymentMethod;
+
     private String reviewText;
 
     private Integer reviewRating;
