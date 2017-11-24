@@ -10,6 +10,8 @@ import com.skipthedishes.api.entities.PaymentMethodsEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderManagementServiceImpl implements OrderManagementService {
 
@@ -20,6 +22,11 @@ public class OrderManagementServiceImpl implements OrderManagementService {
     public OrderManagementServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
+    }
+
+    @Override
+    public Order saveOrder(Order order) {
+        return this.orderRepository.save(order);
     }
 
     @Override
@@ -51,6 +58,16 @@ public class OrderManagementServiceImpl implements OrderManagementService {
         this.orderRepository.save(order);
 
         return successfulPayment;
+    }
+
+    @Override
+    public Order findOrder(String id) {
+        return this.orderRepository.findOne(id);
+    }
+
+    @Override
+    public List<Order> findOrdersByCustomer(String customerId) {
+        return this.orderRepository.findByCustomer_Id(customerId);
     }
 
     @Override
