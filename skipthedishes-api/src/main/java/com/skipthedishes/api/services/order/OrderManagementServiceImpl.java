@@ -1,16 +1,18 @@
 package com.skipthedishes.api.services.order;
 
-import com.skipthedishes.api.entities.Customer;
-import com.skipthedishes.api.entities.Order;
-import com.skipthedishes.api.entities.OrderStatusEnum;
-import com.skipthedishes.api.repositories.CustomerRepository;
-import com.skipthedishes.api.repositories.OrderRepository;
-import com.skipthedishes.api.services.OrderManagementService;
-import com.skipthedishes.api.entities.PaymentMethodsEnum;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.skipthedishes.api.entities.Customer;
+import com.skipthedishes.api.entities.Order;
+import com.skipthedishes.api.entities.OrderStatusEnum;
+import com.skipthedishes.api.entities.PaymentMethodsEnum;
+import com.skipthedishes.api.exceptions.InvalidOrderTotalException;
+import com.skipthedishes.api.repositories.CustomerRepository;
+import com.skipthedishes.api.repositories.OrderRepository;
+import com.skipthedishes.api.services.OrderManagementService;
 
 @Service
 public class OrderManagementServiceImpl implements OrderManagementService {
@@ -30,10 +32,19 @@ public class OrderManagementServiceImpl implements OrderManagementService {
     }
 
     @Override
-    public Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) {
+    public Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException {
         Boolean successfulPayment;
 
         Order order = this.orderRepository.findOne(id);
+        
+        if (order == null) {
+        	return Boolean.FALSE;
+        }
+        
+        //Check if order total is valid
+        if (order.getTotal() == null || order.getTotal() <= 0) {
+        	throw new InvalidOrderTotalException();
+        }
 
         Customer customer = order.getCustomer();
 
