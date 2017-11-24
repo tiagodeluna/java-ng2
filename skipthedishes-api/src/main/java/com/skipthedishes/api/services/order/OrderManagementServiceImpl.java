@@ -46,7 +46,9 @@ public class OrderManagementServiceImpl implements OrderManagementService {
         	throw new InvalidOrderTotalException(order.getTotal());
         }
 
-        Customer customer = order.getCustomer();
+        String customerId = order.getCustomerId();
+
+        Customer customer = this.customerRepository.findOne(customerId);
 
         /* If the customer paid with DishCoins, then his balance must be reduced */
         if (paymentMethod.equals(PaymentMethodsEnum.DISH_POINTS)) {
@@ -78,7 +80,7 @@ public class OrderManagementServiceImpl implements OrderManagementService {
 
     @Override
     public List<Order> findOrdersByCustomer(String customerId) {
-        return this.orderRepository.findByCustomer_Id(customerId);
+        return this.orderRepository.findByCustomerId(customerId);
     }
 
     @Override

@@ -29,9 +29,9 @@ public class Order {
 
     private Integer reviewRating;
 
-    private Customer customer;
+    private String customerId;
 
-    private Set<Item> items;
+    private Set<String> items;
 
     private OrderStatusEnum status;
 

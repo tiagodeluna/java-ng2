@@ -14,7 +14,6 @@ public class Item {
 
     private Integer reviewRating;
 
-    private Dish dish;
+    private String dishId;
 
-    private Order order;
 }

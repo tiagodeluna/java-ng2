@@ -1,5 +1,6 @@
 package com.skipthedishes.api.resources;
 
+import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.repositories.RestaurantRepository;
 import com.skipthedishes.api.services.RestaurantService;
@@ -55,5 +56,10 @@ public class RestaurantResource {
     public ResponseEntity<Restaurant> findById(@PathVariable String id) {
         Restaurant restaurant = restaurantRepository.findOne(id);
         return restaurant == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurant);
+    }
+
+    @GetMapping("{id}/dishes")
+    public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId){
+       return this.restaurantService.findDishesByRestaurantId(restaurantId);
     }
 }

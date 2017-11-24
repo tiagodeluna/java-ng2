@@ -49,7 +49,7 @@ public class OrderManagementServiceImplTest extends BaseTest {
 		this.customer = new Customer();
 		this.customer.setId("111");
 		this.customer.setDishCoin(1000);
-		this.savedOrder.setCustomer(this.customer);
+		this.savedOrder.setCustomerId(this.customer.getId());
 	}
 	
 	@Test
@@ -116,9 +116,10 @@ public class OrderManagementServiceImplTest extends BaseTest {
 	@Test
 	public void testFinishOrder_UnsuficientDishCoins_ReturnsFalse() throws InvalidOrderTotalException {
 		//Arrange
-		this.savedOrder.getCustomer().setDishCoin(500);
+		this.customer.setDishCoin(500);
 		Mockito.when(this.orderRepository.findOne(this.orderId)).thenReturn(this.savedOrder);
-		
+		Mockito.when(this.customerRepository.findOne(this.customer.getId())).thenReturn(this.customer);
+
 		//Act
 		Boolean actual = this.service.finishOrder(this.orderId, PaymentMethodsEnum.DISH_POINTS);
 		
