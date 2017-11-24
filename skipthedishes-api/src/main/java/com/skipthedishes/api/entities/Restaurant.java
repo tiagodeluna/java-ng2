@@ -22,6 +22,10 @@ public class Restaurant {
     
     private String address;
 
+    private String timeToWait;
+
+    private String deliveryFee;
+
     private Set<TagsEnum> tags;
 
     private Set<Dish> dishes;
