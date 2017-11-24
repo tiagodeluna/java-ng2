@@ -32,11 +32,20 @@ public class SearchService {
     }
 
     /**
-     * find all the restaurants where matches the category passed and optionaly by matches a textSearch
+     * find all the dishes where matches the category passed and optionaly by matches a textSearch
      * @param category
      * @return
      */
-    public List<Dish> findDishByCategoryAndtextSearch(String category,String textSearch){
+    public List<Dish> findDishByCategoryAndTextSearch(String category,String textSearch){
+        return null;
+    }
+
+    /**
+     * find all the restaurants where matches a textSearch
+     * @param textSearch
+     * @return
+     */
+    public List<Restaurant> findRestaurantByTextSearch(String textSearch){
         return null;
     }
 
