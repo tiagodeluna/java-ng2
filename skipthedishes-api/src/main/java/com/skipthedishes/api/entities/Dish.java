@@ -18,6 +18,8 @@ public class Dish {
     @Id
     private String id;
 
+    private String restaurantId;
+
     private String name;
 
     private String description;
