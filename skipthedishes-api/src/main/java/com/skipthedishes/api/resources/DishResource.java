@@ -35,9 +35,9 @@ public class DishResource {
         return dishList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(dishList);
     }
 
-    @GetMapping(params = "text")
-    public ResponseEntity<List<Dish>> find(@RequestParam(name = "text") String text) {
-        List<Dish> dishList = dishRepository.find(text);
+    @GetMapping(path = "{id}", params = "text")
+    public ResponseEntity<List<Dish>> find(@PathVariable String id, @RequestParam(name = "text") String text) {
+        List<Dish> dishList = dishRepository.find(id, text);
         return dishList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(dishList);
     }
 }

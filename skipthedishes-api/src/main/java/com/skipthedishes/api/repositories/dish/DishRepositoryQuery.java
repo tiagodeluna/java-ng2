@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface DishRepositoryQuery  {
 
-    List<Dish> find(String text);
+    List<Dish> find(String idRestaurant, String text);
 
 }

@@ -18,15 +18,15 @@ public class Dish {
     @Id
     private String id;
 
-    private String restaurantId;
+    private String idRestaurant;
 
     private String name;
 
     private String description;
 
-    private Set<TagsEnum> tags;
-
     private Double rating;
 
+    private Set<TagsEnum> tags;
 
+    private Set<Item> items;
 }

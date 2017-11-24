@@ -15,13 +15,19 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
 
     @Override
     public List<Restaurant> find(String text) {
-        return mongoTemplate.find(Query.query(new Criteria()
-                .orOperator(
-                        Criteria.where("name").regex(text, "i"),
-                        Criteria.where("address").regex(text, "i"),
-                        Criteria.where("timeToWait").regex(text, "i"),
-                        Criteria.where("deliveryFee").regex(text, "i")
-                )
-        ), Restaurant.class);
+        final Criteria criteriaDefinition = new Criteria();
+
+        criteriaDefinition.orOperator(
+                Criteria.where("name").regex(text, "i"),
+                Criteria.where("address").regex(text, "i"),
+                Criteria.where("timeToWait").regex(text, "i"),
+                Criteria.where("deliveryFee").regex(text, "i")
+        );
+
+        Query query = Query.query(criteriaDefinition);
+        query.fields().exclude("dishes");
+
+        return mongoTemplate.find(query, Restaurant.class);
     }
+
 }

@@ -4,8 +4,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by igorhara on 23/11/2017.
@@ -26,8 +27,6 @@ public class Restaurant {
 
     private String deliveryFee;
 
-    private Set<TagsEnum> tags;
-
-    private Set<Dish> dishes;
+    private List<TagsEnum> tags;
 
 }

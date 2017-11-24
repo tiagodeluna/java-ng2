@@ -2,6 +2,7 @@ package com.skipthedishes.api.resources;
 
 import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.repositories.RestaurantRepository;
+import com.skipthedishes.api.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,10 @@ public class RestaurantResource {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
+    @Autowired
+    private RestaurantService restaurantService;
+
+
     @PostMapping
     public ResponseEntity<Restaurant> create(@Valid @RequestBody Restaurant restaurant) {
         Restaurant restaurantSaved = restaurantRepository.save(restaurant);
@@ -29,6 +34,11 @@ public class RestaurantResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(restaurantList);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Restaurant> update(@PathVariable String id, @Valid @RequestBody Restaurant restaurant) {
+        return ResponseEntity.ok(restaurantService.update(id, restaurant));
+    }
+
     @GetMapping
     public ResponseEntity<List<Restaurant>> findAll() {
         List<Restaurant> restaurantList = restaurantRepository.findAll();
@@ -39,5 +49,11 @@ public class RestaurantResource {
     public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text) {
         List<Restaurant> restaurantList = restaurantRepository.find(text);
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Restaurant> findById(@PathVariable String id) {
+        Restaurant restaurant = restaurantRepository.findOne(id);
+        return restaurant == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurant);
     }
 }
