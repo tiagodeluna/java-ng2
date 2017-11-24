@@ -31,4 +31,6 @@ public class Order {
 
     private Set<Item> items;
 
+    private OrderStatusEnum status;
+
 }
