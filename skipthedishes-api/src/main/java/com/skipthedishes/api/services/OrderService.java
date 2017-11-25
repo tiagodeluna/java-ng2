@@ -8,13 +8,16 @@ import java.util.List;
 
 public interface OrderService {
 
-    Order saveOrder(Order order);
+    List<Order> findByCustomerId(String customerId);
+
+    List<Order> findAll();
+
+    Order findById(String id);
 
     Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException;
 
-    Order findOrder(String id);
+    Order save(Order order);
 
-    List<Order> findOrdersByCustomer(String customerId);
+    Order update(String id, Order order);
 
-    void cancelOrder(String id);
 }

@@ -1,6 +1,6 @@
-package com.skipthedishes.api.utils;
+package com.skipthedishes.api.entities;
 
-public class DishCoinConverter {
+public class DishCoinCalculator {
 
     private static final Double RATE = 25.0;
 
