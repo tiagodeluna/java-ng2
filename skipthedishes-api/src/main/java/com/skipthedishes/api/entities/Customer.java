@@ -22,9 +22,9 @@ public class Customer {
 
     private Integer dishCoin = 0;
 
-    private Set<Dish> favoriteDishes;
+    private Set<String> favoriteDishes = new HashSet<>();
 
-    private Set<Restaurant> favoriteRestaurants;
+    private Set<String> favoriteRestaurants = new HashSet<>();
 
     public void accumulateDishCoins(Double amount) {
         this.dishCoin += amount != null ? amount.intValue() : 0;
@@ -39,11 +39,4 @@ public class Customer {
         return Boolean.FALSE;
     }
 
-    public Set<Dish> getFavoriteDishes() {
-        return favoriteDishes == null ? new HashSet<>() : favoriteDishes;
-    }
-
-    public Set<Restaurant> getFavoriteRestaurants() {
-        return favoriteRestaurants == null ? new HashSet<>() : favoriteRestaurants;
-    }
 }

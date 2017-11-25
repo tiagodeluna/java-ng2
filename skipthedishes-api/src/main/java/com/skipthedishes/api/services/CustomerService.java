@@ -14,21 +14,39 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer favorite(String customerId, Dish dish) {
+    public Customer addFavoriteDish(String customerId, String dishId) {
         Customer customerRecovered = customerRepository.findOne(customerId);
         if (customerRecovered == null) {
             throw new EmptyResultDataAccessException(1);
         }
-        customerRecovered.getFavoriteDishes().add(dish);
+        customerRecovered.getFavoriteDishes().add(dishId);
         return customerRepository.save(customerRecovered);
     }
 
-    public Customer favorite(String customerId, Restaurant restaurant) {
+    public Customer removeFavoriteDish(String customerId, String dishId) {
         Customer customerRecovered = customerRepository.findOne(customerId);
         if (customerRecovered == null) {
             throw new EmptyResultDataAccessException(1);
         }
-        customerRecovered.getFavoriteRestaurants().add(restaurant);
+        customerRecovered.getFavoriteDishes().remove(dishId);
+        return customerRepository.save(customerRecovered);
+    }
+
+    public Customer addFavoriteRestaurant(String customerId, String restaurantId) {
+        Customer customerRecovered = customerRepository.findOne(customerId);
+        if (customerRecovered == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
+        customerRecovered.getFavoriteRestaurants().add(restaurantId);
+        return customerRepository.save(customerRecovered);
+    }
+
+    public Customer removeFavoriteRestaurant(String customerId, String restaurantId) {
+        Customer customerRecovered = customerRepository.findOne(customerId);
+        if (customerRecovered == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
+        customerRecovered.getFavoriteRestaurants().remove(restaurantId);
         return customerRepository.save(customerRecovered);
     }
 }
