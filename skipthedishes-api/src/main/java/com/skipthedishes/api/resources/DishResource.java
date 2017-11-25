@@ -51,6 +51,12 @@ public class DishResource {
         return  ResponseEntity.ok(dishList);
     }
 
+    @GetMapping(params = "customerId")
+    public ResponseEntity<List<Dish>> findCustomerFavoriteDish(@RequestParam(name = "customerId") String customerId) {
+        List<Dish> dishList = dishRepository.findFavoriteByCustomerId(customerId);
+        return dishList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(dishList);
+    }
+
     @GetMapping(params = {"restaurantId","category","tag"})
     public ResponseEntity<List<Dish>> findByCategoryAndTag(@RequestParam(name = "restaurantId")String restaurantId,
                                                      @RequestParam(name = "category")CategoriesEnum category,

@@ -14,4 +14,6 @@ public interface RestaurantRepositoryQuery {
     List<Restaurant> find(String text,int offset,int size);
 
     List<Restaurant> findByCategoryAndTag(CategoriesEnum category, TagsEnum tag);
+
+    List<Restaurant> findFavoriteByCustomerId(String customerId);
 }

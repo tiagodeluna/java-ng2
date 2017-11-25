@@ -36,7 +36,7 @@ public class RestaurantResource {
 
     @PostMapping(path = "bulk")
     public ResponseEntity<List<Restaurant>> createBulk(@RequestBody List<Restaurant> restaurantList) {
-        restaurantList.stream().forEach(restaurantRepository::save);
+        restaurantRepository.save(restaurantList);
         return ResponseEntity.status(HttpStatus.CREATED).body(restaurantList);
     }
 
@@ -51,15 +51,14 @@ public class RestaurantResource {
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 
-    @GetMapping(params = {"text","offset","size"})
-    public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text, @RequestParam(name = "offset")int offset,@RequestParam(name = "size")int size) {
-        List<Restaurant> restaurantList = restaurantRepository.find(text,offset,size);
+    @GetMapping(params = {"text", "offset", "size"})
+    public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text, @RequestParam(name = "offset") int offset, @RequestParam(name = "size") int size) {
+        List<Restaurant> restaurantList = restaurantRepository.find(text, offset, size);
         return ResponseEntity.ok(restaurantList);
     }
 
-    @GetMapping(params = {"category","tag"})
-    public ResponseEntity<List<Restaurant>> findByCategoryAndTag(@RequestParam(name = "category")CategoriesEnum category,
-                                                                 @RequestParam(name = "tag")TagsEnum tag) {
+    @GetMapping(params = {"category", "tag"})
+    public ResponseEntity<List<Restaurant>> findByCategoryAndTag(@RequestParam(name = "category") CategoriesEnum category, @RequestParam(name = "tag") TagsEnum tag) {
         List<Restaurant> restaurantList = this.restaurantService.findByCategoryAndTag(category, tag);
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
@@ -71,7 +70,13 @@ public class RestaurantResource {
     }
 
     @GetMapping("{id}/dishes")
-    public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId){
-       return this.dishService.findByRestaurantId(restaurantId);
+    public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId) {
+        return this.dishService.findByRestaurantId(restaurantId);
+    }
+
+    @GetMapping(params = "customerId")
+    public ResponseEntity<List<Restaurant>> findCustomerFavoriteRestaurant(@RequestParam(name = "customerId") String customerId) {
+        List<Restaurant> restaurantList = restaurantRepository.findFavoriteByCustomerId(customerId);
+        return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 }

@@ -1,8 +1,10 @@
 package com.skipthedishes.api.repositories.dish;
 
 import com.skipthedishes.api.entities.CategoriesEnum;
+import com.skipthedishes.api.entities.Customer;
 import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.TagsEnum;
+import com.skipthedishes.api.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,10 +16,13 @@ import java.util.List;
 public class DishRepositoryImpl implements DishRepositoryQuery {
 
     @Autowired
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Override
-    public List<Dish> find(String text,int offset, int size) {
+    public List<Dish> find(String text, int offset, int size) {
         Criteria criteriaDefinition = new Criteria()
                 .orOperator(
                         Criteria.where("name").regex(text, "i"),
@@ -42,5 +47,15 @@ public class DishRepositoryImpl implements DishRepositoryQuery {
         Query query = Query.query(Criteria.byExample(example));
 
         return mongoTemplate.find(query, Dish.class);
+    }
+
+    @Override
+    public List<Dish> findFavoriteByCustomerId(String customerId) {
+        Customer customer = customerRepository.findOne(customerId);
+
+        Criteria criteria = new Criteria();
+        criteria.and("id").in(customer.getFavoriteDishes());
+
+        return mongoTemplate.find(Query.query(criteria), Dish.class);
     }
 }
