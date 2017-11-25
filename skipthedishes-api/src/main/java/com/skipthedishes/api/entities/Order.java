@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Order {
+public class Order implements PayableWithDishCoins {
 
     @Id
     private String id;
@@ -31,11 +31,14 @@ public class Order {
 
     private String customerId;
 
+    private String restaurantId;
+
     private Set<Item> items;
 
     private OrderStatusEnum status;
 
-    public Double getTotalInDishCoins() {
-        return DishCoinCalculator.convert(this.total);
+    @Override
+    public Double getValueInDishCoins() {
+        return this.convert(this.total);
     }
 }

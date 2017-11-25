@@ -13,12 +13,12 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Dish {
+public class Dish implements PayableWithDishCoins {
 
     @Id
     private String id;
 
-    private String idRestaurant;
+    private String restaurantId;
 
     private String name;
 
@@ -26,11 +26,14 @@ public class Dish {
 
     private Double rating;
 
+    private Set<CategoriesEnum> categories;
+
     private Set<TagsEnum> tags;
 
     private Double price;
 
-    public Double getPriceInDishCoins() {
-        return DishCoinCalculator.convert(this.price);
+    @Override
+    public Double getValueInDishCoins() {
+        return this.convert(this.price);
     }
 }

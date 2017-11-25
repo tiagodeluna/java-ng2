@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -19,11 +20,11 @@ public class Customer {
 
     private String lastName;
 
-    private Integer dishCoin=0;
+    private Integer dishCoin = 0;
 
-    private Set<String> favoriteDishes;
+    private Set<Dish> favoriteDishes;
 
-    private Set<String> favoriteRestaurants;
+    private Set<Restaurant> favoriteRestaurants;
 
     public void accumulateDishCoins(Double amount) {
         this.dishCoin += amount != null ? amount.intValue() : 0;
@@ -36,5 +37,13 @@ public class Customer {
         }
 
         return Boolean.FALSE;
+    }
+
+    public Set<Dish> getFavoriteDishes() {
+        return favoriteDishes == null ? new HashSet<>() : favoriteDishes;
+    }
+
+    public Set<Restaurant> getFavoriteRestaurants() {
+        return favoriteRestaurants == null ? new HashSet<>() : favoriteRestaurants;
     }
 }

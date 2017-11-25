@@ -2,8 +2,11 @@ package com.skipthedishes.api.resources;
 
 
 import com.skipthedishes.api.entities.Customer;
+import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Order;
+import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.repositories.CustomerRepository;
+import com.skipthedishes.api.services.CustomerService;
 import com.skipthedishes.api.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,9 @@ public class CustomerResource {
     private CustomerRepository customerRepository;
 
     @Autowired
+    private CustomerService customerService;
+
+    @Autowired
     private OrderService orderService;
 
     @PostMapping
@@ -29,8 +35,20 @@ public class CustomerResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
     }
 
+    @PutMapping("/{id}/favorite-dish")
+    public ResponseEntity<Customer> favorite(@PathVariable String id, @Valid @RequestBody Dish dish) {
+        Customer customerSaved = customerService.favorite(id, dish);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+    }
+
+    @PutMapping(path = "{id}/favorite-restaurant")
+    public ResponseEntity<Customer> favorite(@PathVariable String id, @Valid @RequestBody Restaurant restaurant) {
+        Customer customerSaved = customerService.favorite(id, restaurant);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+    }
+
     @PostMapping(path = "bulk")
-    public ResponseEntity<List<Customer>> createBulk( @RequestBody List<Customer> customers) {
+    public ResponseEntity<List<Customer>> createBulk(@RequestBody List<Customer> customers) {
         customers.stream().forEach(customerRepository::save);
         return ResponseEntity.status(HttpStatus.CREATED).body(customers);
     }

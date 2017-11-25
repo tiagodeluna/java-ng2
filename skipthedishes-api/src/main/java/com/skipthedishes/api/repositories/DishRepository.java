@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface DishRepository  extends MongoRepository<Dish, String>, DishRepositoryQuery {
+public interface DishRepository extends MongoRepository<Dish, String>, DishRepositoryQuery {
 
-    public List<Dish> findAllByIdRestaurant(String idRestaurant);
+    List<Dish> findAllByRestaurantId(String idRestaurant);
 
 }
