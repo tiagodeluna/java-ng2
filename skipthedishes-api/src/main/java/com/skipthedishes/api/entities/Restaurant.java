@@ -32,4 +32,6 @@ public class Restaurant {
 
     private Set<TagsEnum> tags;
 
+    private Double rating;
+
 }
