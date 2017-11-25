@@ -1,0 +1,142 @@
+[
+    {
+        "id": "5a17c514ad00e3733be906ed",
+        "restaurantId": "5a17c434ad00e372c7d75fd1",
+        "name": "Chicken Combos",
+        "description": "All chicken combos include a regular side, biscuit, and bottled drink.",
+        "rating": 7.5,
+        "categories": ["MEAT"],
+        "tags": ["CHICKEN"],
+        "price": 9.0
+    },
+    {
+        "id": "5a17c514ad00e3733be906ee",
+        "restaurantId": "5a17c434ad00e372c7d75fd1",
+        "name": "Chicken Platters",
+        "description": "Platters include two regular sides, a biscuit, and bottled drink.",
+        "rating": 8,
+        "categories": ["MEAT"],
+        "tags": ["CHICKEN"],
+        "price": 11.0
+    },
+    {
+        "id": "5a17c514ad00e3733be906ef",
+        "restaurantId": "5a17c434ad00e372c7d75fcb",
+        "name": "Chicken Tenders Combos",
+        "description": "Chicken tender and nugget combos include a regular side, biscuit, and bottled drink.",
+        "rating": 8.5,
+        "categories": ["MEAT"],
+        "tags": [ "STEAK", "CHICKEN", "PORK" ],
+        "price": 9.50
+    },
+    {
+        "id": "5a17c514ad00e3733be906f0",
+        "restaurantId": "5a17c434ad00e372c7d75fcc",
+        "name": "Chicken Tender Platters",
+        "description": "Chicken tender platters include two regular sides, a biscuit, and bottled drink.",
+        "rating": 8.5,
+        "categories": ["MEAT"],
+        "tags": ["CHICKEN", "DESSERTS"],
+        "price": 12.90
+    },
+    {
+        "id": "5a17c514ad00e3733be906f1",
+        "restaurantId": "5a17c434ad00e372c7d75fcb",
+        "name": "Sandwich Combos",
+        "description": "Sandwich combos include a regular side and bottled drink.",
+        "rating": 8.0,
+        "categories": ["MEAT"],
+        "tags": [ "STEAK", "CHICKEN", "PORK" ],
+        "price": 8.50
+    },
+    {
+        "id": "5a17c514ad00e3733be906f2",
+        "restaurantId": "5a17c434ad00e372c7d75fcf",
+        "name": "Sandwich Platters",
+        "description": "Sandwich platters include two regular sides and a bottled drink.",
+        "rating": 9.0,
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK"],
+        "price": 10.90
+    },
+    {
+        "id": "5a17c514ad00e3733be906f3",
+        "restaurantId": "5a17c434ad00e372c7d75fcd",
+        "name": "Seafood Combos",
+        "description": "Seafood combos include a regular side, a biscuit, and a bottled drink.",
+        "rating": 7.5,
+        "categories": ["ORIENTAL"],
+        "tags": ["JAPANESE", "CHINESE", "THAI"],
+        "price": 12.50
+    },
+    {
+        "id": "5a17c514ad00e3733be906f4",
+        "restaurantId": "5a17c434ad00e372c7d75fcc",
+        "name": "Medium Gourmet Pizzas",
+        "description": "Twelve-inch medium pizzas.",
+        "rating": 9.0,
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK"],
+        "price": 10.90
+    },
+    {
+        "id": "5a17c514ad00e3733be906f5",
+        "restaurantId": "5a17c434ad00e372c7d75fce",
+        "name": "Large Gourmet Pizzas",
+        "description": "Fourteen-inch large pizzas.",
+        "rating": 8.5,
+        "categories": ["VEGAN"],
+        "tags": ["SALADS", "DESSERTS"],
+        "price": 15.0
+    },
+    {
+        "id": "5a17c514ad00e3733be906f6",
+        "restaurantId": "5a17c434ad00e372c7d75fcf",
+        "name": "X-Large Gourmet Pizzas",
+        "description": "Sixteen-inch extra-large pizzas.",
+        "rating": 8.9,
+        "categories": ["MEAT"],
+        "tags": [ "STEAK", "CHICKEN", "PORK" ],
+        "price": 13.40
+    },
+    {
+        "id": "5a17c514ad00e3733be906f7",
+        "restaurantId": "5a17c434ad00e372c7d75fce",
+        "name": "Snack and Share",
+        "description": "Delicious appetizers for you and your friends!",
+        "rating": 9.0,
+        "categories": ["VEGAN"],
+        "tags": ["SALADS", "DESSERTS"],
+        "price": 11.9
+    },
+    {
+        "id": "5a17c514ad00e3733be906f8",
+        "restaurantId": "5a17c434ad00e372c7d75fcd",
+        "name": "Katsu Burgers and Rice",
+        "description": "Enjoy these jaw-dropping Katsu burgers! At the center of this Asian fusion masterpiece is an over-sized cutlet with tomatoes, fresh-cut lettuce, slaw, pickles, Japanese mayo, and katsu sauce!",
+        "rating": 6.5,
+        "categories": ["ORIENTAL"],
+        "tags": ["JAPANESE", "CHINESE", "THAI"],
+        "price": 15.0
+    },
+    {
+        "id": "5a17c514ad00e3733be906f9",
+        "restaurantId": "5a17c434ad00e372c7d75fd4",
+        "name": "Noodle Soups",
+        "description": "Fill yourself up with a heart-warming noodle soup!",
+        "rating": 9.5,
+        "categories": ["ORIENTAL", "VEGAN"],
+        "tags": ["CHINESE", "THAI", "DESSERTS"],
+        "price": 20.0
+    },
+    {
+        "id": "5a17c514ad00e3733be906fa",
+        "restaurantId": null,
+        "name": "Gourmet Soups",
+        "description": "Fill yourself up with a heart-warming noodle soup!",
+        "rating": 4.5,
+        "categories": ["MEAT", "ORIENTAL", "VEGAN"],
+        "tags": ["STEAK", "CHICKEN", "JAPANESE", "CHINESE", "THAI", "SALADS"],
+        "price": 19.9
+    }
+]

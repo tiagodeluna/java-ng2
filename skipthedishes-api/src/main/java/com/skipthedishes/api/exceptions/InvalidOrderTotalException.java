@@ -8,7 +8,7 @@ public class InvalidOrderTotalException extends Exception {
 
 	private static final long serialVersionUID = -8992657892942548850L;
 	
-	public static final String MESSAGE = "Order total is invalid";
+	protected static final String MESSAGE = "Order total is invalid";
 	
 	public InvalidOrderTotalException(Double value) {
 		super(String.format("%s: %s", InvalidOrderTotalException.MESSAGE, value));

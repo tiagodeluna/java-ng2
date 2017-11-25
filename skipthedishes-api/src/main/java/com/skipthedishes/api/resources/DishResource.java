@@ -39,6 +39,13 @@ public class DishResource {
     public ResponseEntity<Dish> update(@PathVariable String id, @Valid @RequestBody Dish dish) {
         return ResponseEntity.ok(dishService.update(id, dish));
     }
+
+    @PutMapping(path = "bulk")
+    public ResponseEntity<List<Dish>> updateBulk(@RequestBody List<Dish> dishList) {
+        dishList.stream().forEach(r -> dishService.update(r.getId(), r));
+        return ResponseEntity.status(HttpStatus.CREATED).body(dishList);
+    }
+
     @GetMapping
     public ResponseEntity<List<Dish>> findAll() {
         List<Dish> dishList = dishRepository.findAll();

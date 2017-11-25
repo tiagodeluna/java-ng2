@@ -5,9 +5,7 @@
         "address": "Don Mills Rd. E",
         "timeToWait": "25 - 45 mins",
         "deliveryFee": "Free Delivery",
-        "categories": [
-            "MEAT"
-        ],
+        "categories": ["MEAT"],
         "tags": [ "STEAK", "CHICKEN", "PORK" ],
         "rating": 7.9
     },
