@@ -35,15 +35,27 @@ public class CustomerResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
     }
 
-    @PutMapping("/{id}/favorite-dish")
-    public ResponseEntity<Customer> favorite(@PathVariable String id, @Valid @RequestBody Dish dish) {
-        Customer customerSaved = customerService.favorite(id, dish);
+    @PutMapping(path = "/{id}/add-favorite-dish", params = "dishId")
+    public ResponseEntity<Customer> addFavoriteDish(@PathVariable String id, @RequestParam(name = "dishId") String dishId) {
+        Customer customerSaved = customerService.addFavoriteDish(id, dishId);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
     }
 
-    @PutMapping(path = "{id}/favorite-restaurant")
-    public ResponseEntity<Customer> favorite(@PathVariable String id, @Valid @RequestBody Restaurant restaurant) {
-        Customer customerSaved = customerService.favorite(id, restaurant);
+    @PutMapping(path = "/{id}/remove-favorite-dish", params = "dishId")
+    public ResponseEntity<Customer> removeFavoriteDish(@PathVariable String id, @RequestParam(name = "dishId") String dishId) {
+        Customer customerSaved = customerService.removeFavoriteDish(id, dishId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+    }
+
+    @PutMapping(path = "/{id}/add-favorite-restaurant", params = "restaurantId")
+    public ResponseEntity<Customer> addFavoriteRestaurant(@PathVariable String id, @RequestParam(name = "restaurantId") String restaurantId) {
+        Customer customerSaved = customerService.addFavoriteRestaurant(id, restaurantId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+    }
+
+    @PutMapping(path = "/{id}/remove-favorite-restaurant", params = "restaurantId")
+    public ResponseEntity<Customer> removeFavorite(@PathVariable String id, @RequestParam(name = "restaurantId") String restaurantId) {
+        Customer customerSaved = customerService.removeFavoriteRestaurant(id, restaurantId);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
     }
 
