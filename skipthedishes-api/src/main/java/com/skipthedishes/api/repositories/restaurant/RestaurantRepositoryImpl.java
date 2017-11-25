@@ -14,7 +14,7 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
     MongoTemplate mongoTemplate;
 
     @Override
-    public List<Restaurant> find(String text) {
+    public List<Restaurant> find(String text,int offset, int size) {
         final Criteria criteriaDefinition = new Criteria();
 
         criteriaDefinition.orOperator(
@@ -25,6 +25,8 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
         );
 
         Query query = Query.query(criteriaDefinition);
+        query.skip(offset);
+        query.limit(size);
         query.fields().exclude("dishes");
 
         return mongoTemplate.find(query, Restaurant.class);

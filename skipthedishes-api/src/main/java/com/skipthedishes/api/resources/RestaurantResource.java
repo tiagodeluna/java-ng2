@@ -46,9 +46,9 @@ public class RestaurantResource {
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 
-    @GetMapping(params = "text")
-    public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text) {
-        List<Restaurant> restaurantList = restaurantRepository.find(text);
+    @GetMapping(params = {"text","offset","size"})
+    public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text, @RequestParam(name = "offset")int offset,@RequestParam(name = "size")int size) {
+        List<Restaurant> restaurantList = restaurantRepository.find(text,offset,size);
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 
