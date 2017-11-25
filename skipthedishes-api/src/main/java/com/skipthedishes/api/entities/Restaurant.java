@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by igorhara on 23/11/2017.
@@ -26,6 +27,8 @@ public class Restaurant {
     private String timeToWait;
 
     private String deliveryFee;
+
+    private Set<CategoriesEnum> categories;
 
     private List<TagsEnum> tags;
 

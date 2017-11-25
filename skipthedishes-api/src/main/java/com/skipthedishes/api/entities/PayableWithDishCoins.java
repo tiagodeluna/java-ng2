@@ -2,7 +2,7 @@ package com.skipthedishes.api.entities;
 
 public interface PayableWithDishCoins {
 
-    static final Double RATE = 25.0;
+    Double RATE = 25.0;
 
     Double getValueInDishCoins();
 

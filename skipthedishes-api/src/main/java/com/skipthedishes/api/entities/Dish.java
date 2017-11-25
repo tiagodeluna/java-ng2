@@ -26,6 +26,8 @@ public class Dish implements PayableWithDishCoins {
 
     private Double rating;
 
+    private Set<CategoriesEnum> categories;
+
     private Set<TagsEnum> tags;
 
     private Double price;
