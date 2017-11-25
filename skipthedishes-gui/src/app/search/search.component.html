@@ -9,9 +9,15 @@
 <div class="row"
      *ngIf="searchService.currentText!=='' && (searchService.currentDishesLines+searchService.currentRestaurantLines!==0)">
   <div class="col-xs-12" style="">
-    <app-dish-list [dishes]="searchService.currentDishesSearch" (scroll)="searchService.loadDishes()"></app-dish-list>
-    <app-restaurant-list [restaurants]="searchService.currentRestaurantSearch"
-                     (scroll)="searchService.loadRestaurants()"></app-restaurant-list>
+    <p-accordion>
+      <p-accordionTab [header]="getDishesHeader()">
+        <app-dish-list [dishes]="searchService.currentDishesSearch" (scroll)="searchService.loadDishes()"></app-dish-list>
+      </p-accordionTab>
+      <p-accordionTab [header]="getRestaurantsHeader()">
+        <app-restaurant-list [restaurants]="searchService.currentRestaurantSearch"
+                             (scroll)="searchService.loadRestaurants()"></app-restaurant-list>
+      </p-accordionTab>
+    </p-accordion>
   </div>
 </div>
 <div class="row"

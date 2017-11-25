@@ -12,9 +12,19 @@ export class RestaurantItemListComponent implements OnInit {
 
   @Input() restaurant:Restaurant = new Restaurant();
 
-  constructor(private customerService:CustomerService) { }
+   distance:number;
+
+  constructor(private customerService:CustomerService) {
+    this.distance =this.getRandomDistance();
+
+  }
 
   ngOnInit() {
+  }
+
+
+  getRandomDistance():number{
+    return Math.random();
   }
 
 }

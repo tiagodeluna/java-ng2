@@ -57,42 +57,25 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>${frontend-maven-plugin.version}</version>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
 				<executions>
-					<!--<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<nodeVersion>${node.version}</nodeVersion>
-							<npmVersion>${npm.version}</npmVersion>
-						</configuration>
-					</execution>-->
-
 					<execution>
-						<id>npm install</id>
 						<goals>
-							<goal>npm</goal>
+							<goal>exec</goal>
 						</goals>
-						<configuration>
-							<arguments>install</arguments>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>prod</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>run-script prod</arguments>
-						</configuration>
-						<phase>generate-resources</phase>
 					</execution>
 				</executions>
+				<configuration>
+					<executable>npm </executable>
+					<!-- optional -->
+					<workingDirectory>${basedir}/../skipthedishes-gui</workingDirectory>
+					<arguments>
+						<argument>run-script</argument>
+						<argument>prod</argument>
+					</arguments>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>

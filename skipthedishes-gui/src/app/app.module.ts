@@ -4,7 +4,7 @@ import {NgModule} from "@angular/core";
 
 import {AppComponent} from "./app.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {StepsModule} from "primeng/primeng";
+import {AccordionModule, StepsModule} from "primeng/primeng";
 
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
@@ -39,7 +39,8 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     StepsModule,
     AppRoutingModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    AccordionModule
   ],
   providers: [CustomerService,SearchService],
   bootstrap: [AppComponent]

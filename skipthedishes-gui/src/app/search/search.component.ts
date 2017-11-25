@@ -29,4 +29,11 @@ export class SearchComponent implements OnInit {
     this.searchService.doSearch(this.textControl.value);
   }
 
+  getDishesHeader(){
+    return "Dishes";
+  }
+  getRestaurantsHeader(){
+    return "Restaurants";
+  }
+
 }

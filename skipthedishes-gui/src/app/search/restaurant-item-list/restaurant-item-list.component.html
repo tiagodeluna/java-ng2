@@ -1,3 +1,11 @@
-<p>
-  restaurant-item-list works!
-</p>
+<div class="row">
+  <div class="col-xs-1">picture</div>
+  <div class="col-xs-6">
+    <span class="text-center ">
+    {{restaurant.name}}<br> {{distance | number:'1.0-2'}} miles <br> {{restaurant.timeToWait}}
+    </span>
+  </div>
+  <div class="col-xs-1"><span class="fa fa-heart-o"></span></div>
+  <div class="col-xs-1">{{restaurant.deliveryFee}}</div>
+  <div class="col-xs-2"><span class="fa fa-shopping-cart"></span></div>
+</div>
