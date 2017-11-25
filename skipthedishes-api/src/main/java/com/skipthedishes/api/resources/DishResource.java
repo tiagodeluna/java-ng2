@@ -48,7 +48,7 @@ public class DishResource {
     @GetMapping(params = {"text","offset","size"})
     public ResponseEntity<List<Dish>> find(@RequestParam(name = "text") String text, @RequestParam(name = "offset")int offset,@RequestParam(name = "size")int size) {
         List<Dish> dishList = dishRepository.find(text,offset,size);
-        return dishList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(dishList);
+        return  ResponseEntity.ok(dishList);
     }
 
     @GetMapping(params = {"restaurantId","category","tag"})

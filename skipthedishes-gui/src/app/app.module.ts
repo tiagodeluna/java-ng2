@@ -18,6 +18,7 @@ import { RestaurantItemListComponent } from './search/restaurant-item-list/resta
 import { DishItemListComponent } from './search/dish-item-list/dish-item-list.component';
 import { DishListComponent } from './dish-list/dish-list.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {InfiniteScrollModule} from "ngx-infinite-scroll";
     SearchComponent,
     RestaurantItemListComponent,
     DishItemListComponent,
-    DishListComponent
+    DishListComponent,
+    RestaurantListComponent
   ],
   imports: [
     BrowserModule,

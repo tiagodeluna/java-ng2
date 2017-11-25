@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CustomerService} from "../../services/customer/customer.service";
+import {Dish} from "../../services/search/dish.model";
 
 @Component({
   selector: 'app-dish-item-list',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DishItemListComponent implements OnInit {
 
-  constructor() { }
+
+
+  @Input() dish:Dish = new Dish();
+
+  constructor(private customerService:CustomerService) { }
 
   ngOnInit() {
   }

@@ -18,12 +18,14 @@ public class DishRepositoryImpl implements DishRepositoryQuery {
 
     @Override
     public List<Dish> find(String text,int offset, int size) {
-        return mongoTemplate.find(Query.query(new Criteria()
+        Criteria criteriaDefinition = new Criteria()
                 .orOperator(
                         Criteria.where("name").regex(text, "i"),
                         Criteria.where("description").regex(text, "i")
-                )
-        ), Dish.class);
+                );
+        Query query = Query.query(criteriaDefinition);
+        query.skip(offset).limit(size);
+        return mongoTemplate.find(query, Dish.class);
     }
 
     @Override

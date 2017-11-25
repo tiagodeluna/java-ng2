@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   textControl: FormControl;
 
 
-  constructor(private searchService:SearchService) { }
+  constructor(public searchService:SearchService) { }
 
   ngOnInit() {
 

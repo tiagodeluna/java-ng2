@@ -25,22 +25,25 @@ export class SearchService {
   sizeSearch: number=20;
 
   doSearch(text: string) {
-    if (text && text.length >= 3 && this.currentText !== text) {
-      this.currentText = text;
-      this.currentDishesLines = 0;
-      this.currentRestaurantLines = 0;
-      this.currentDishesAllLoaded=false;
-      this.currentRestaurantsAllLoaded=false;
-      this.loadRestaurants();
-      this.loadDishes();
+    this.currentText = "";
+    this.currentDishesLines = 0;
+    this.currentRestaurantLines = 0;
+    this.currentDishesAllLoaded=false;
+    this.currentRestaurantsAllLoaded=false;
+    if (text && text.length >= 3) {
+      this.loadRestaurants(text);
+      this.loadDishes(text);
     }
 
   }
 
-  private loadRestaurants() {
+  public loadRestaurants(text:string = this.currentText) {
+    if(this.currentRestaurantsAllLoaded){
+      return;
+    }
     this.http.get<Restaurant[]>("api/restaurants", {
       params: {
-        "text": this.currentText,
+        "text": text,
         "offset": String(this.currentRestaurantLines),
         "size": String(this.sizeSearch)
       }
@@ -52,14 +55,18 @@ export class SearchService {
         this.currentRestaurantLines+=result.length;
         this.currentRestaurantSearch.push(...result);
       }
+      this.currentText = text;
     });
     console.log(this.currentRestaurantSearch);
   }
 
-  private loadDishes() {
+  public loadDishes(text:string = this.currentText) {
+    if(this.currentDishesAllLoaded){
+      return;
+    }
     this.http.get<Dish[]>("api/dishes", {
       params: {
-        "text": this.currentText,
+        "text": text,
         "offset": String(this.currentDishesLines),
         "size": String(this.sizeSearch)
       }
@@ -71,6 +78,7 @@ export class SearchService {
         this.currentDishesLines+=result.length;
         this.currentDishesSearch.push(...result);
       }
+      this.currentText = text;
     });
     console.log(this.currentDishesSearch);
   }
