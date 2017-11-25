@@ -5,6 +5,7 @@ import com.skipthedishes.api.entities.Customer;
 import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Order;
 import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.exceptions.DishCoinNotEnoughException;
 import com.skipthedishes.api.repositories.CustomerRepository;
 import com.skipthedishes.api.services.CustomerService;
 import com.skipthedishes.api.services.OrderService;
@@ -57,6 +58,26 @@ public class CustomerResource {
     public ResponseEntity<Customer> removeFavorite(@PathVariable String id, @RequestParam(name = "restaurantId") String restaurantId) {
         Customer customerSaved = customerService.removeFavoriteRestaurant(id, restaurantId);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+    }
+
+    @PutMapping(path = "/{id}/decrease-dish-coins", params = "value")
+    public ResponseEntity<?> decreaseDishCoins(@PathVariable String id, @RequestParam(name = "value") String value) {
+        try {
+            Customer customerSaved = customerService.decreaseDishCoins(id, value);
+            return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+        } catch (DishCoinNotEnoughException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PutMapping(path = "/{id}/add-dish-coins", params = "value")
+    public ResponseEntity<?> addDishCoins(@PathVariable String id, @RequestParam(name = "value") String value) {
+        try {
+            Customer customerSaved = customerService.addDishCoins(id, value);
+            return ResponseEntity.status(HttpStatus.CREATED).body(customerSaved);
+        } catch (DishCoinNotEnoughException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping(path = "bulk")
