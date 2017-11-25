@@ -4,5 +4,5 @@ public enum PaymentMethodsEnum {
 
     CASH,
     CREDIT_CARD,
-    DISH_POINTS
+    DISH_COINS
 }

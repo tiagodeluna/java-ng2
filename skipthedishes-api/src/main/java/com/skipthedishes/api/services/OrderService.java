@@ -6,7 +6,7 @@ import com.skipthedishes.api.exceptions.InvalidOrderTotalException;
 
 import java.util.List;
 
-public interface OrderManagementService {
+public interface OrderService {
 
     Order saveOrder(Order order);
 

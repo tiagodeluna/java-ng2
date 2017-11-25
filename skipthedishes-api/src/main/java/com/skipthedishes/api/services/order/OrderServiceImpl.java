@@ -12,16 +12,16 @@ import com.skipthedishes.api.entities.PaymentMethodsEnum;
 import com.skipthedishes.api.exceptions.InvalidOrderTotalException;
 import com.skipthedishes.api.repositories.CustomerRepository;
 import com.skipthedishes.api.repositories.OrderRepository;
-import com.skipthedishes.api.services.OrderManagementService;
+import com.skipthedishes.api.services.OrderService;
 
 @Service
-public class OrderManagementServiceImpl implements OrderManagementService {
+public class OrderServiceImpl implements OrderService {
 
     private OrderRepository orderRepository;
     private CustomerRepository customerRepository;
 
     @Autowired
-    public OrderManagementServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
     }
@@ -46,12 +46,10 @@ public class OrderManagementServiceImpl implements OrderManagementService {
         	throw new InvalidOrderTotalException(order.getTotal());
         }
 
-        String customerId = order.getCustomerId();
-
-        Customer customer = this.customerRepository.findOne(customerId);
+        Customer customer = this.customerRepository.findOne(order.getCustomerId());
 
         /* If the customer paid with DishCoins, then his balance must be reduced */
-        if (paymentMethod.equals(PaymentMethodsEnum.DISH_POINTS)) {
+        if (paymentMethod.equals(PaymentMethodsEnum.DISH_COINS)) {
             successfulPayment = customer.spendDishCoins(order.getTotal());
         } else {
             //If the payment was made with cash/credit, then the customer accumulates points
