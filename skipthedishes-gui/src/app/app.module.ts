@@ -19,6 +19,7 @@ import { DishItemListComponent } from './search/dish-item-list/dish-item-list.co
 import { DishListComponent } from './dish-list/dish-list.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     RestaurantItemListComponent,
     DishItemListComponent,
     DishListComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

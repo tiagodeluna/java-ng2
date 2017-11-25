@@ -27,4 +27,24 @@ export class RestaurantItemListComponent implements OnInit {
     return Math.random();
   }
 
+  isFavorite():boolean{
+    return this.customerService.currentCustomer.favoriteRestaurants.indexOf(this.restaurant.id) >=0
+  }
+
+  getFavIcon():string{
+    if(this.isFavorite()){
+      return "fa-heart";
+    }else{
+      return "fa-heart-o";
+    }
+  }
+
+  toggleFavorite(){
+    if(this.isFavorite()){
+       this.customerService.removeFavoriteRestaurant(this.restaurant);
+    }else{
+      this.customerService.addFavoriteRestaurant(this.restaurant);
+    }
+  }
+
 }
