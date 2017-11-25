@@ -28,7 +28,6 @@ public class Dish {
 
     private Set<TagsEnum> tags;
 
-    private Set<Item> items;
 
     private Double price;
 }

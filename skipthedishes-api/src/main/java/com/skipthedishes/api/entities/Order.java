@@ -31,7 +31,7 @@ public class Order {
 
     private String customerId;
 
-    private Set<String> items;
+    private Set<Item> items;
 
     private OrderStatusEnum status;
 
