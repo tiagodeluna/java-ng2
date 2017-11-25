@@ -18,7 +18,7 @@ public class Dish {
     @Id
     private String id;
 
-    private String idRestaurant;
+    private String restaurantId;
 
     private String name;
 

@@ -31,6 +31,8 @@ public class Order {
 
     private String customerId;
 
+    private String restaurantId;
+
     private Set<Item> items;
 
     private OrderStatusEnum status;
