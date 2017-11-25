@@ -1,5 +1,6 @@
 package com.skipthedishes.api.entities;
 
+import com.skipthedishes.api.utils.DishCoinConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,4 +36,7 @@ public class Order {
 
     private OrderStatusEnum status;
 
+    public Double getTotalInDishCoins() {
+        return DishCoinConverter.convert(this.total);
+    }
 }

@@ -49,7 +49,7 @@ public class OrderServiceImplTest extends BaseTest {
 		
 		this.customer = Mockito.spy(new Customer());
 		this.customer.setId("111");
-		this.customer.setDishCoin(1000);
+		this.customer.setDishCoin(30000);
 		this.savedOrder.setCustomerId(this.customer.getId());
 	}
 	
@@ -140,8 +140,8 @@ public class OrderServiceImplTest extends BaseTest {
 		Boolean actual = this.service.finishOrder(this.orderId, PaymentMethodsEnum.DISH_COINS);
 
 		//Assertion
-		Mockito.doReturn(Boolean.TRUE).when(this.customer).spendDishCoins(this.savedOrder.getTotal());
-		assertEquals(Boolean.TRUE, this.customer.spendDishCoins(this.savedOrder.getTotal()));
+		Mockito.doReturn(Boolean.TRUE).when(this.customer).spendDishCoins(this.savedOrder.getTotalInDishCoins());
+		assertEquals(Boolean.TRUE, this.customer.spendDishCoins(this.savedOrder.getTotalInDishCoins()));
 		assertEquals(Boolean.TRUE, actual);
 	}
 

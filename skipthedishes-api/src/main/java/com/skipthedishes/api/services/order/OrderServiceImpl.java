@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 
         /* If the customer paid with DishCoins, then his balance must be reduced */
         if (paymentMethod.equals(PaymentMethodsEnum.DISH_COINS)) {
-            successfulPayment = customer.spendDishCoins(order.getTotal());
+            successfulPayment = customer.spendDishCoins(order.getTotalInDishCoins());
         } else {
             //If the payment was made with cash/credit, then the customer accumulates points
             customer.accumulateDishCoins(order.getTotal());
