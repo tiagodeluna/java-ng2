@@ -11,22 +11,27 @@ import {AppRoutingModule} from "./app-routing.module";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {CustomerService} from "./services/customer/customer.service";
 import {HttpClientModule} from "@angular/common/http";
+import { SearchComponent } from './search/search.component';
+import {SearchService} from "./services/search/search.service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     StepsModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

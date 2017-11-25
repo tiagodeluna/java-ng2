@@ -10,6 +10,8 @@ export class CustomerService{
 
   customers:Customer[];
 
+  currentCustomer:Customer;
+
   constructor(private http:HttpClient){
 
   }
@@ -24,4 +26,14 @@ export class CustomerService{
     });
 
   }
+
+  isCurrentCustomer(customer:Customer):boolean{
+    if(this.currentCustomer && customer && this.currentCustomer.id===customer.id){
+      return true;
+    }
+
+    return false;
+
+  }
+
 }
