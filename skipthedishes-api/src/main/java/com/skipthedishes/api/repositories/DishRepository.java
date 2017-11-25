@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface DishRepository  extends MongoRepository<Dish, String>, DishRepositoryQuery {
 
-    public List<Dish> findAllByIdRestaurant(String idRestaurant);
+    public List<Dish> findAllByRestaurantId(String restaurantId);
 
 }

@@ -1,7 +1,9 @@
 package com.skipthedishes.api.services;
 
+import com.skipthedishes.api.entities.CategoriesEnum;
 import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.DishRepository;
 import com.skipthedishes.api.repositories.RestaurantRepository;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +28,10 @@ public class RestaurantService {
         return restaurantRepository.save(restaurantRecovered);
     }
 
+    public List<Restaurant> findByCategoryAndTag(CategoriesEnum category, TagsEnum tag) {
+        return restaurantRepository.findByCategoryAndTag(category, tag);
+    }
+
     private Restaurant findById(String id) {
         Restaurant restaurant = restaurantRepository.findOne(id);
         if (restaurant == null) {
@@ -35,6 +41,7 @@ public class RestaurantService {
     }
 
     public List<Dish> findDishesByRestaurantId(String id){
-        return this.dishRepository.findAllByIdRestaurant(id);
+        return this.dishRepository.findAllByRestaurantId(id);
     }
+
 }

@@ -1,11 +1,14 @@
 package com.skipthedishes.api.repositories.restaurant;
 
+import com.skipthedishes.api.entities.CategoriesEnum;
 import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.entities.TagsEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
@@ -27,6 +30,20 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
         Query query = Query.query(criteriaDefinition);
         query.skip(offset);
         query.limit(size);
+        query.fields().exclude("dishes");
+
+        return mongoTemplate.find(query, Restaurant.class);
+    }
+
+    @Override
+    public List<Restaurant> findByCategoryAndTag(CategoriesEnum category, TagsEnum tag) {
+        Restaurant example = new Restaurant();
+        example.setCategories(Collections.singleton(category));
+        if (tag != null) {
+            example.setTags(Collections.singleton(tag));
+        }
+
+        Query query = Query.query(Criteria.byExample(example));
         query.fields().exclude("dishes");
 
         return mongoTemplate.find(query, Restaurant.class);
