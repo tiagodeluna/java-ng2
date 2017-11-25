@@ -18,7 +18,7 @@ public class Dish implements PayableWithDishCoins {
     @Id
     private String id;
 
-    private String idRestaurant;
+    private String restaurantId;
 
     private String name;
 

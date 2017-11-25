@@ -19,11 +19,11 @@ public class Customer {
 
     private String lastName;
 
-    private Integer dishCoin=0;
+    private Integer dishCoin = 0;
 
-    private Set<String> favoriteDishes;
+    private Set<Dish> favoriteDishes;
 
-    private Set<String> favoriteRestaurants;
+    private Set<Restaurant> favoriteRestaurants;
 
     public void accumulateDishCoins(Double amount) {
         this.dishCoin += amount != null ? amount.intValue() : 0;

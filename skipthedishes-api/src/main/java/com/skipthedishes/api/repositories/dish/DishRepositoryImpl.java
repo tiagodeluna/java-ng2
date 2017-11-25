@@ -14,9 +14,8 @@ public class DishRepositoryImpl implements DishRepositoryQuery {
     MongoTemplate mongoTemplate;
 
     @Override
-    public List<Dish> find(String idRestaurant, String text) {
+    public List<Dish> find(String text,int offset, int size) {
         return mongoTemplate.find(Query.query(new Criteria()
-                .and("idRestaurant").is(idRestaurant)
                 .orOperator(
                         Criteria.where("name").regex(text, "i"),
                         Criteria.where("description").regex(text, "i")
