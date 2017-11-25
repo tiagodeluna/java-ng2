@@ -5,17 +5,14 @@ import lombok.Getter;
 @Getter
 public enum TagsEnum {
 
-    SANDWICH("Sandwich"),
+    STEAK("Steak"),
+    CHICKEN("Chicken"),
+    PORK("Pork"),
     JAPANESE("Japanese"),
-    LUNCH("Lunch"),
-    ITALIAN("Italian"),
     CHINESE("Chinese"),
-    AMERICAN("American"),
-    BREAKFAST("Breakfast"),
-    MEXICAN("Mexican"),
+    THAI("Thai"),
     SALADS("Salads"),
-    BBQ("BBQ"),
-    FAST_FOOD("Fast Food");
+    DESSERTS("Desserts");
 
     private String name;
 
