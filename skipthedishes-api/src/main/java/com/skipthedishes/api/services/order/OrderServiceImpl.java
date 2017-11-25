@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
     public Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException {
         Boolean successfulPayment;
 
-        Order order = this.orderRepository.findOne(id);
+        Order order = findById(id);
         
         if (order == null) {
         	return Boolean.FALSE;
@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
         /* If the customer paid with DishCoins, then his balance must be reduced */
         if (paymentMethod.equals(PaymentMethodsEnum.DISH_COINS)) {
-            successfulPayment = customer.spendDishCoins(order.getTotalInDishCoins());
+            successfulPayment = customer.spendDishCoins(order.getValueInDishCoins());
         } else {
             //If the payment was made with cash/credit, then the customer accumulates points
             customer.accumulateDishCoins(order.getTotal());
