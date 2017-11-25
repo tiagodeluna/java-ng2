@@ -5,6 +5,7 @@ import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.RestaurantRepository;
+import com.skipthedishes.api.services.DishService;
 import com.skipthedishes.api.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,8 @@ public class RestaurantResource {
     @Autowired
     private RestaurantService restaurantService;
 
+    @Autowired
+    private DishService dishService;
 
     @PostMapping
     public ResponseEntity<Restaurant> create(@Valid @RequestBody Restaurant restaurant) {
@@ -55,8 +58,9 @@ public class RestaurantResource {
     }
 
     @GetMapping(params = {"category","tag"})
-    public ResponseEntity<List<Restaurant>> findByCategory(@RequestParam(name = "category")CategoriesEnum category, @RequestParam(name = "tag")TagsEnum tag) {
-        List<Restaurant> restaurantList = this.restaurantService.findByCategoryAndTag(category, tag); //restaurantRepository.findOne(id);
+    public ResponseEntity<List<Restaurant>> findByCategoryAndTag(@RequestParam(name = "category")CategoriesEnum category,
+                                                                 @RequestParam(name = "tag")TagsEnum tag) {
+        List<Restaurant> restaurantList = this.restaurantService.findByCategoryAndTag(category, tag);
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 
@@ -68,6 +72,6 @@ public class RestaurantResource {
 
     @GetMapping("{id}/dishes")
     public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId){
-       return this.restaurantService.findDishesByRestaurantId(restaurantId);
+       return this.dishService.findByRestaurantId(restaurantId);
     }
 }

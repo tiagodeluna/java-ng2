@@ -19,9 +19,6 @@ public class RestaurantService {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @Autowired
-    private DishRepository dishRepository;
-
     public Restaurant update(String id, Restaurant restaurant) {
         Restaurant restaurantRecovered = findById(id);
         BeanUtils.copyProperties(restaurant, restaurantRecovered, "id");
@@ -38,10 +35,6 @@ public class RestaurantService {
             throw new EmptyResultDataAccessException(1);
         }
         return restaurant;
-    }
-
-    public List<Dish> findDishesByRestaurantId(String id){
-        return this.dishRepository.findAllByRestaurantId(id);
     }
 
 }

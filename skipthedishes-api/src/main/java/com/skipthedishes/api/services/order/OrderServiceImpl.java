@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.skipthedishes.api.entities.Customer;
@@ -81,7 +82,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order findById(String id) {
-        return this.orderRepository.findOne(id);
+        Order order = this.orderRepository.findOne(id);
+        if (order == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
+        return order;
     }
 
     @Override
