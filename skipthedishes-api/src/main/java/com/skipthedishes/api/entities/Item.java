@@ -14,6 +14,6 @@ public class Item {
 
     private Integer reviewRating;
 
-    private String dishId;
+    private Dish dish;
 
 }
