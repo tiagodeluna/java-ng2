@@ -32,7 +32,7 @@ public class DishResource {
     @GetMapping
     public ResponseEntity<List<Dish>> findAll() {
         List<Dish> dishList = dishRepository.findAll();
-        return dishList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(dishList);
+        return ResponseEntity.ok(dishList);
     }
 
     @GetMapping(params = {"text","offset","size"})

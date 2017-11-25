@@ -14,6 +14,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { SearchComponent } from './search/search.component';
 import {SearchService} from "./services/search/search.service";
 import {ReactiveFormsModule} from "@angular/forms";
+import { RestaurantItemListComponent } from './search/restaurant-item-list/restaurant-item-list.component';
+import { DishItemListComponent } from './search/dish-item-list/dish-item-list.component';
+import { DishListComponent } from './dish-list/dish-list.component';
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 
 @NgModule({
@@ -21,7 +25,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     NavBarComponent,
-    SearchComponent
+    SearchComponent,
+    RestaurantItemListComponent,
+    DishItemListComponent,
+    DishListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     StepsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [CustomerService,SearchService],
   bootstrap: [AppComponent]
