@@ -30,6 +30,8 @@ public class Restaurant {
 
     private Set<CategoriesEnum> categories;
 
-    private List<TagsEnum> tags;
+    private Set<TagsEnum> tags;
+
+    private Double rating;
 
 }

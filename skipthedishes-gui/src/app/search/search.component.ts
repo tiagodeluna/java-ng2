@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
 
 
   doSearch(){
+    console.log("do search")
     this.searchService.doSearch(this.textControl.value);
   }
 

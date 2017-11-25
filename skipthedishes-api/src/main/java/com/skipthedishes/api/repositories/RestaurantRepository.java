@@ -1,6 +1,8 @@
 package com.skipthedishes.api.repositories;
 
+import com.skipthedishes.api.entities.CategoriesEnum;
 import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.restaurant.RestaurantRepositoryQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

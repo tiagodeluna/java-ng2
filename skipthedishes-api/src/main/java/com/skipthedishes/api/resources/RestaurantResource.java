@@ -1,7 +1,9 @@
 package com.skipthedishes.api.resources;
 
+import com.skipthedishes.api.entities.CategoriesEnum;
 import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.RestaurantRepository;
 import com.skipthedishes.api.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,12 @@ public class RestaurantResource {
     @GetMapping(params = {"text","offset","size"})
     public ResponseEntity<List<Restaurant>> find(@RequestParam(name = "text") String text, @RequestParam(name = "offset")int offset,@RequestParam(name = "size")int size) {
         List<Restaurant> restaurantList = restaurantRepository.find(text,offset,size);
+        return ResponseEntity.ok(restaurantList);
+    }
+
+    @GetMapping(params = {"category","tag"})
+    public ResponseEntity<List<Restaurant>> findByCategory(@RequestParam(name = "category")CategoriesEnum category, @RequestParam(name = "tag")TagsEnum tag) {
+        List<Restaurant> restaurantList = this.restaurantService.findByCategoryAndTag(category, tag); //restaurantRepository.findOne(id);
         return restaurantList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurantList);
     }
 
