@@ -38,22 +38,9 @@ public class OrderResource {
         return orderList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(orderList);
     }
 
-    @PostMapping(params = "finish")
-    public ResponseEntity<Boolean> finish(@Valid @RequestBody String id, @Valid @RequestBody PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException {
+    @PostMapping(params = "/{id}/finish")
+    public ResponseEntity<Boolean> finish(@PathVariable String id, @Valid @RequestBody PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException {
         Boolean isOrderFinished = orderService.finishOrder(id, paymentMethod);
         return ResponseEntity.status(HttpStatus.CREATED).body(isOrderFinished);
     }
-
-    /*
-    @GetMapping("/{id}")
-    public ResponseEntity<Restaurant> findById(@PathVariable String id) {
-        Restaurant restaurant = restaurantRepository.findOne(id);
-        return restaurant == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurant);
-    }
-
-    @GetMapping("{id}/dishes")
-    public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId){
-       return this.restaurantService.findDishesByRestaurantId(restaurantId);
-    }
-    */
 }

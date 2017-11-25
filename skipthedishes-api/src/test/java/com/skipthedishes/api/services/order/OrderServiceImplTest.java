@@ -53,7 +53,7 @@ public class OrderServiceImplTest extends BaseTest {
 	}
 	
 	@Test
-	public void saveOrder_whenNewOrderIsProvided_thenReturnSavedOrder() {
+	public void save_whenNewOrderIsProvided_thenReturnSavedOrder() {
 		//Arrange
 		Order expected = new Order();
 		expected.setId(this.orderId);
