@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <p>  Mock Home Page,<br>
+      Please Select Customer</p>
+  </div>
+</div>
+<div class="row">
+ <div class="col-sm-12">
+   <div class="list-group" >
+     <a *ngFor="let customer of customers" class="list-group-item {{isCurrentCustomer(customer)}}"
+        (click)="setCurrentCustomer(customer)">{{customer.firstName}}
+       {{customer.lastName}} -
+       {{customer.dishCoin}}</a>
+   </div>
+ </div>
+
+
+</div>
