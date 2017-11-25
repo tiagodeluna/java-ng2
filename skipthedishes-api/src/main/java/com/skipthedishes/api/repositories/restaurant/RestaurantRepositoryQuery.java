@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface RestaurantRepositoryQuery {
 
-    List<Restaurant> find(String text);
+    List<Restaurant> find(String text,int offset,int size);
 
 }
