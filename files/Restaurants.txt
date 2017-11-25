@@ -1,0 +1,214 @@
+[
+    {
+        "id": "5a17c434ad00e372c7d75fcb",
+        "name": "Popeyes Louisiana Kitchen",
+        "address": "Don Mills Rd. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": [
+            "MEAT"
+        ],
+        "tags": [ "STEAK", "CHICKEN", "PORK" ],
+        "rating": 7.9
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fcc",
+        "name": "Pizza La Rosa",
+        "address": "Victoria Park Ave.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT", "VEGAN"],
+        "tags": ["STEAK", "CHICKEN", "SALADS", "DESSERTS"],
+        "rating": 8.5
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fcd",
+        "name": "Fat Ninja Bite",
+        "address": "Kennedy Rd.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["ORIENTAL"],
+        "tags": ["JAPANESE", "CHINESE", "THAI"],
+        "rating": 7.5
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fce",
+        "name": "Pastel Creperie & Dessert House",
+        "address": "Yonge St.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["VEGAN"],
+        "tags": ["SALADS", "DESSERTS"],
+        "rating": 9.0
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fcf",
+        "name": "Montana's BBQ & Bar",
+        "address": "Major Mackenzie Dr. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK"],
+        "rating": 7.0
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd0",
+        "name": "Mizuki Sushi & Presotea",
+        "address": "Don Mills Rd.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["ORIENTAL", "VEGAN"],
+        "tags": ["JAPANESE", "CHINESE", "DESSERTS"],
+        "rating": 8.7
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd1",
+        "name": "Very Peri Chicken",
+        "address": "Sheppard Ave. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["CHICKEN"],
+        "rating": 6.5
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd2",
+        "name": "Smoke's Poutinerie",
+        "address": "Yonge St.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK", "DESSERTS"],
+        "rating": 8.5
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd3",
+        "name": "Pizza Hot Wings",
+        "address": "Don Mills Rd. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN"],
+        "rating": 8.0
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd4",
+        "name": "Spring China House",
+        "address": "Sheppard Ave. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["ORIENTAL", "VEGAN"],
+        "tags": ["CHINESE", "THAI", "SALADS", "DESSERTS"],
+        "rating": 9.1
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd5",
+        "name": "PizzaLand Halal",
+        "address": "Lawrence Ave. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK", "DESSERTS"],
+        "rating": 8.0
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd6",
+        "name": "Delicious of Heynoodles",
+        "address": "Midland Ave.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT", "ORIENTAL", "VEGAN"],
+        "tags": ["STEAK", "CHICKEN", "JAPANESE", "CHINESE", "THAI", "SALADS"],
+        "rating": 8.9
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd7",
+        "name": "Wingburger",
+        "address": "Eglinton Ave. E",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN"],
+        "rating": 7.9
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd8",
+        "name": "Thai One On",
+        "address": "Avenue Rd.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "$3.99",
+        "categories": ["ORIENTAL", "VEGAN"],
+        "tags": ["THAI", "SALADS"],
+        "rating": 7.5
+    },
+    {
+        "id": "5a17c434ad00e372c7d75fd9",
+        "name": "Quiznos",
+        "address": "Woodbine Ave.",
+        "timeToWait": "25 - 45 mins",
+        "deliveryFee": "$2.99",
+        "categories": ["MEAT", "VEGAN"],
+        "tags": ["STEAK", "CHICKEN", "PORK", "SALADS", "DESSERTS"],
+        "rating": 8.0
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fda",
+        "name": "Philthy Philly's",
+        "address": "Victoria Park Ave.",
+        "timeToWait": "27 - 47 mins",
+        "deliveryFee": "$3.99",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK"],
+        "rating": 8.1
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fdb",
+        "name": "Bombay Bhel",
+        "address": "Commerce Valley Dr. E",
+        "timeToWait": "31 - 51 mins",
+        "deliveryFee": "$3.99",
+        "categories": ["MEAT", "ORIENTAL"],
+        "tags": ["STEAK", "CHICKEN", "JAPANESE", "CHINESE", "THAI"],
+        "rating": 8.9
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fdc",
+        "name": "Woodstone Eatery",
+        "address": "Apple Creek Blvd.",
+        "timeToWait": "35 - 55 mins",
+        "deliveryFee": "$1.99",
+        "categories": ["MEAT", "VEGAN"],
+        "tags": ["STEAK", "CHICKEN", "SALADS"],
+        "rating": 8.5
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fdd",
+        "name": "Fat Bastard Burrito",
+        "address": "Victoria Park Ave.",
+        "timeToWait": "27 - 47 mins",
+        "deliveryFee": "Free Delivery",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "PORK"],
+        "rating": 6.5
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fde",
+        "name": "Agra Fine Indian Cuisine",
+        "address": "Yonge St.",
+        "timeToWait": "37 - 57 mins",
+        "deliveryFee": "$2.99",
+        "categories": ["ORIENTAL", "VEGAN"],
+        "tags": ["CHINESE", "THAI", "SALADS", "DESSERTS"],
+        "rating": 9.0
+    },
+    {
+        "id": "5a17c435ad00e372c7d75fdf",
+        "name": "Wimpy's Diner",
+        "address": "Sheppard Ave. E",
+        "timeToWait": "31 - 51 mins",
+        "deliveryFee": "$3.99",
+        "categories": ["MEAT"],
+        "tags": ["STEAK", "CHICKEN", "DESSERTS"],
+        "rating": 6.7
+    }
+]

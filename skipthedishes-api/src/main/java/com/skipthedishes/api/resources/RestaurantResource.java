@@ -40,6 +40,12 @@ public class RestaurantResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(restaurantList);
     }
 
+    @PutMapping(path = "bulk")
+    public ResponseEntity<List<Restaurant>> updateBulk(@RequestBody List<Restaurant> restaurantList) {
+        restaurantList.stream().forEach(r -> restaurantService.update(r.getId(), r));
+        return ResponseEntity.status(HttpStatus.CREATED).body(restaurantList);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Restaurant> update(@PathVariable String id, @Valid @RequestBody Restaurant restaurant) {
         return ResponseEntity.ok(restaurantService.update(id, restaurant));
