@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -36,5 +37,13 @@ public class Customer {
         }
 
         return Boolean.FALSE;
+    }
+
+    public Set<Dish> getFavoriteDishes() {
+        return favoriteDishes == null ? new HashSet<>() : favoriteDishes;
+    }
+
+    public Set<Restaurant> getFavoriteRestaurants() {
+        return favoriteRestaurants == null ? new HashSet<>() : favoriteRestaurants;
     }
 }

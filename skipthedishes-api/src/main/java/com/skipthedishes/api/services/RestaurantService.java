@@ -35,6 +35,6 @@ public class RestaurantService {
     }
 
     public List<Dish> findDishesByRestaurantId(String id){
-        return this.dishRepository.findAllByIdRestaurant(id);
+        return this.dishRepository.findAllByRestaurantId(id);
     }
 }
