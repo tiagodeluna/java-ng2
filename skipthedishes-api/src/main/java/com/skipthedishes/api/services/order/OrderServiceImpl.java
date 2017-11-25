@@ -2,6 +2,7 @@ package com.skipthedishes.api.services.order;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order saveOrder(Order order) {
+    public Order save(Order order) {
         return this.orderRepository.save(order);
+    }
+
+    @Override
+    public Order update(String id, Order order) {
+        Order orderRecovered = findById(id);
+        BeanUtils.copyProperties(order, orderRecovered, "id");
+        return orderRepository.save(orderRecovered);
     }
 
     @Override
@@ -72,19 +80,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findOrder(String id) {
+    public Order findById(String id) {
         return this.orderRepository.findOne(id);
     }
 
     @Override
-    public List<Order> findOrdersByCustomer(String customerId) {
+    public List<Order> findByCustomerId(String customerId) {
         return this.orderRepository.findByCustomerId(customerId);
     }
 
     @Override
-    public void cancelOrder(String id) {
-        Order order = this.orderRepository.findOne(id);
-        order.setStatus(OrderStatusEnum.CANCELED);
-        this.orderRepository.save(order);
+    public List<Order> findAll() {
+        return this.orderRepository.findAll();
     }
+
 }

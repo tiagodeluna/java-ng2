@@ -1,6 +1,5 @@
 package com.skipthedishes.api.entities;
 
-import com.skipthedishes.api.utils.DishCoinConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +31,6 @@ public class Dish {
     private Double price;
 
     public Double getPriceInDishCoins() {
-        return DishCoinConverter.convert(this.price);
+        return DishCoinCalculator.convert(this.price);
     }
 }

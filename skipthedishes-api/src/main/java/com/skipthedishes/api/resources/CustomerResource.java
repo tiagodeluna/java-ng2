@@ -2,7 +2,9 @@ package com.skipthedishes.api.resources;
 
 
 import com.skipthedishes.api.entities.Customer;
+import com.skipthedishes.api.entities.Order;
 import com.skipthedishes.api.repositories.CustomerRepository;
+import com.skipthedishes.api.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ public class CustomerResource {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private OrderService orderService;
 
     @PostMapping
     public ResponseEntity<Customer> create(@Valid @RequestBody Customer customer) {
@@ -44,5 +49,10 @@ public class CustomerResource {
 
     }
 
+    @GetMapping("/{id}/orders")
+    public ResponseEntity<List<Order>> findOrdersById(@PathVariable String id) {
+        List<Order> customerOrders = orderService.findByCustomerId(id);
+        return customerOrders.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(customerOrders);
+    }
 
 }

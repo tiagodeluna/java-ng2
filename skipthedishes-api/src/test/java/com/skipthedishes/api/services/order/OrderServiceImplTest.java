@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.skipthedishes.api.BaseTest;
@@ -54,7 +53,7 @@ public class OrderServiceImplTest extends BaseTest {
 	}
 	
 	@Test
-	public void saveOrder_whenNewOrderIsProvided_thenReturnSavedOrder() {
+	public void save_whenNewOrderIsProvided_thenReturnSavedOrder() {
 		//Arrange
 		Order expected = new Order();
 		expected.setId(this.orderId);
@@ -63,7 +62,7 @@ public class OrderServiceImplTest extends BaseTest {
 		Mockito.when(this.orderRepository.save(this.newOrder)).thenReturn(expected);
 		
 		//Act
-		Order actual = this.service.saveOrder(this.newOrder);
+		Order actual = this.service.save(this.newOrder);
 		
 		//Assert
 		assertEquals(expected, actual);
