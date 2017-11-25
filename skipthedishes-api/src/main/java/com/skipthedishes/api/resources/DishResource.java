@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dishes")
+@RequestMapping("/api/dishes")
 public class DishResource {
     
     @Autowired

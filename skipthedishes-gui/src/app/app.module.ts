@@ -6,17 +6,27 @@ import {AppComponent} from "./app.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {StepsModule} from "primeng/primeng";
 
+import {HomeComponent} from "./home/home.component";
+import {AppRoutingModule} from "./app-routing.module";
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {CustomerService} from "./services/customer/customer.service";
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StepsModule
+    StepsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
