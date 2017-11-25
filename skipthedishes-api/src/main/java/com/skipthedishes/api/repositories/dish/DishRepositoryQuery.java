@@ -10,6 +10,7 @@ public interface DishRepositoryQuery  {
 
     List<Dish> find( String text,int offset, int size);
 
+    List<Dish> findFavoriteByCustomerId(String customerId);
     List<Dish> findByCategoryAndTag(String restaurantId, CategoriesEnum category, TagsEnum tag);
 
 

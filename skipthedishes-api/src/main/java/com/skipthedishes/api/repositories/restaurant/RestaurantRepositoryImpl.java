@@ -1,8 +1,10 @@
 package com.skipthedishes.api.repositories.restaurant;
 
 import com.skipthedishes.api.entities.CategoriesEnum;
+import com.skipthedishes.api.entities.Customer;
 import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.entities.TagsEnum;
+import com.skipthedishes.api.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -10,11 +12,15 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
 
     @Autowired
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Override
     public List<Restaurant> find(String text,int offset, int size) {
@@ -47,6 +53,16 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
         query.fields().exclude("dishes");
 
         return mongoTemplate.find(query, Restaurant.class);
+    }
+
+    @Override
+    public List<Restaurant> findFavoriteByCustomerId(String customerId) {
+        Customer customer = customerRepository.findOne(customerId);
+
+        Criteria criteria = new Criteria();
+        criteria.and("id").in(customer.getFavoriteRestaurants());
+
+        return mongoTemplate.find(Query.query(criteria), Restaurant.class);
     }
 
 }

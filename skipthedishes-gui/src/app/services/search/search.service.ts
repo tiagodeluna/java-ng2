@@ -30,6 +30,8 @@ export class SearchService {
     this.currentRestaurantLines = 0;
     this.currentDishesAllLoaded=false;
     this.currentRestaurantsAllLoaded=false;
+    this.currentDishesSearch.splice(0);
+    this.currentRestaurantSearch.splice(0);
     if (text && text.length >= 3) {
       this.loadRestaurants(text);
       this.loadDishes(text);
