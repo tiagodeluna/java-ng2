@@ -4,6 +4,8 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/do";
+import {Dish} from "../search/dish.model";
+import {Restaurant} from "../search/restaurant.model";
 
 @Injectable()
 export class CustomerService{
@@ -11,6 +13,9 @@ export class CustomerService{
   customers:Customer[];
 
   currentCustomer:Customer;
+
+  dishes:Dish[]=[];
+  restaurants:Restaurant[]=[];
 
   constructor(private http:HttpClient){
 
@@ -34,6 +39,53 @@ export class CustomerService{
 
     return false;
 
+  }
+
+  public loadFavorites(){
+    this.http.get<Dish[]>("/api/dishes",{params:{
+      "customerId":this.currentCustomer.id
+    }}).subscribe((result:Dish[])=>{
+       this.dishes = result;
+    });
+
+    this.http.get<Restaurant[]>("/api/restaurants",{params:{
+      "customerId":this.currentCustomer.id
+    }}).subscribe((result:Restaurant[])=>{
+      this.restaurants = result;
+    });
+
+  }
+
+  public addFavoriteRestaurant(restaurant:Restaurant){
+    this.http.put<Customer>("/api/customers/"+this.currentCustomer.id+"/add-favorite-restaurant",null,{params:{
+      "restaurantId":restaurant.id
+    }}).subscribe((customer:Customer)=>{
+       this.currentCustomer.favoriteRestaurants = customer.favoriteRestaurants;
+    })
+  }
+
+  public removeFavoriteRestaurant(restaurant:Restaurant){
+    this.http.put<Customer>("/api/customers/"+this.currentCustomer.id+"/remove-favorite-restaurant",null,{params:{
+      "restaurantId":restaurant.id
+    }}).subscribe((customer:Customer)=>{
+      this.currentCustomer.favoriteRestaurants = customer.favoriteRestaurants;
+    })
+  }
+
+  public addFavoriteDish(restaurant:Dish){
+    this.http.put<Customer>("/api/customers/"+this.currentCustomer.id+"/add-favorite-dish",null,{params:{
+      "dishId":restaurant.id
+    }}).subscribe((customer:Customer)=>{
+      this.currentCustomer.favoriteDishes = customer.favoriteDishes;
+    })
+  }
+
+  public removeFavoriteDish(restaurant:Dish){
+    this.http.put<Customer>("/api/customers/"+this.currentCustomer.id+"/remove-favorite-dish",null,{params:{
+      "dishId":restaurant.id
+    }}).subscribe((customer:Customer)=>{
+      this.currentCustomer.favoriteDishes = customer.favoriteDishes;
+    })
   }
 
 }

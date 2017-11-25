@@ -18,4 +18,26 @@ export class DishItemListComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  isFavorite():boolean{
+    return this.customerService.currentCustomer.favoriteDishes.indexOf(this.dish.id) >=0
+  }
+
+  getFavIcon():string{
+    if(this.isFavorite()){
+      return "fa-heart";
+    }else{
+      return "fa-heart-o";
+    }
+  }
+
+  toggleFavorite(){
+    if(this.isFavorite()){
+      this.customerService.removeFavoriteDish(this.dish);
+    }else{
+      this.customerService.addFavoriteDish(this.dish);
+    }
+  }
+
+
 }
