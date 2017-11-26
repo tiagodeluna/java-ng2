@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-xs-1">picture</div>
-  <div class="col-xs-6">
+  <div class="col-xs-1"><img class="accordion-image" alt="Picture" [src]="'assets/img/restaurant-icon.png'"></div>
+  <div class="col-xs-5">
     <span class="text-center ">
     {{restaurant.name}}<br> {{distance | number:'1.0-2'}} miles <br> {{restaurant.timeToWait}}
     </span>
   </div>
   <div class="col-xs-1"><span class="fa {{getFavIcon()}}" (click)="toggleFavorite()"></span></div>
-  <div class="col-xs-2">{{restaurant.deliveryFee}}</div>
-  <div class="col-xs-1"><span class="fa fa-shopping-cart" (click)="goToRestaurant()"></span></div>
+  <div class="col-xs-3">{{restaurant.deliveryFee}}</div>
+  <div class="col-xs-1"><span class="fa fa-chevron-right" (click)="goToRestaurant()"></span></div>
 </div>
