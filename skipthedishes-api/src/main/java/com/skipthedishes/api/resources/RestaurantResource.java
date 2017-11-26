@@ -75,7 +75,7 @@ public class RestaurantResource {
         return restaurant == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(restaurant);
     }
 
-    @GetMapping("{id}/dishes")
+    @GetMapping("{restaurantId}/dishes")
     public List<Dish> getDishesFromRestaurant(@PathVariable String restaurantId) {
         return this.dishService.findByRestaurantId(restaurantId);
     }

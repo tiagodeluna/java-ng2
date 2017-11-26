@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CustomerService} from "../services/customer/customer.service";
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public customerService:CustomerService) { }
 
   ngOnInit() {
 
+
+
+  }
+
+  getCurrentDishCoins():number{
+    if(this.customerService.currentCustomer){
+      return this.customerService.currentCustomer.dishCoin;
+    }
+
+    return 0;
   }
 
 }

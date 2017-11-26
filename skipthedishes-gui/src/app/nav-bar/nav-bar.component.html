@@ -7,7 +7,7 @@ true}"><a routerLink="/">home</a></li>
         <li routerLinkActive="active"><a routerLink="/search">Search</a></li>
         <li routerLinkActive="active"><a routerLink="/favorites">Fav</a></li>
         <li routerLinkActive="active"><a routerLink="/orders">Orders</a></li>
-        <li routerLinkActive="active"><a routerLink="/profile">Profile</a></li>
+        <li>{{getCurrentDishCoins() | number}}</li>
       </ul>
     </div>
   </div>
