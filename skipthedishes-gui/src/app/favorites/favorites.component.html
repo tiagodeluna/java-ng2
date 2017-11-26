@@ -1,8 +1,10 @@
-<p-accordion>
-  <p-accordionTab header="Dishes">
-    <app-dish-list [dishes]="customerService.dishes"></app-dish-list>
-  </p-accordionTab>
-  <p-accordionTab header="Restaurants">
-    <app-restaurant-list [restaurants]="customerService.restaurants"></app-restaurant-list>
-  </p-accordionTab>
-</p-accordion>
+<div class="accordion">
+	<p-accordion>
+	  <p-accordionTab header="Dishes">
+	    <app-dish-list [dishes]="customerService.dishes"></app-dish-list>
+	  </p-accordionTab>
+	  <p-accordionTab header="Restaurants">
+	    <app-restaurant-list [restaurants]="customerService.restaurants"></app-restaurant-list>
+	  </p-accordionTab>
+	</p-accordion>
+</div>
