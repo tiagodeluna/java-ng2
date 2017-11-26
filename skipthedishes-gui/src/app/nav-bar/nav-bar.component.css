@@ -27,6 +27,14 @@
 	text-align: center;
 	text-transform: uppercase;
 }
+.nav-bar-button.inactive, .nav-bar-button.inactive:hover {
+	color: #aaa;
+}
+.navbar-default span {
+	align-items: center;
+	display: block;
+	height: 55px;
+}
 
 .navbar-centralizer {
 	margin: 0 15% 0 20%;

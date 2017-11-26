@@ -13,16 +13,22 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
 
-
-
   }
 
-  getCurrentDishCoins():number{
+  getCustomerFirstName():string{
     if(this.customerService.currentCustomer){
-      return this.customerService.currentCustomer.dishCoin;
+      return this.customerService.currentCustomer.firstName;
     }
 
-    return 0;
+    return "Select a customer";
+  }
+
+  getCurrentDishCoins():string{
+    if(this.customerService.currentCustomer){
+      return "DC$ " + this.customerService.currentCustomer.dishCoin;
+    }
+
+    return "";
   }
 
   hasValidOrder(){

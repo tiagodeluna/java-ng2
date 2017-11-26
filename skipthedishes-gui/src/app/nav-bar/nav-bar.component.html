@@ -3,17 +3,16 @@
     <div class="navbar-default">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-bar-button" routerLink="/home"><img [src]="'assets/img/profile-icon.svg'" alt="image" />Home</a>
+          <a class="nav-bar-button" routerLink="/home"><span>{{getCustomerFirstName()}}<br />{{getCurrentDishCoins()}}</span></a>
         </li>
         <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/search"><img [src]="'assets/img/search-icon.svg'" alt="image" />Search</a></li>
-        <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/favorites"><img [src]="'assets/img/favorites-icon.svg'" alt="image" />Favorites</a></li>
-        <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/orders"><img [src]="'assets/img/orders-icon.svg'" alt="image" />Orders</a></li>
         <li routerLinkActive="active">
-          <a class="nav-bar-button" routerLink="/checkout" *ngIf="hasValidOrder()">Checkout
-        </a>
-          <span *ngIf="!hasValidOrder()">Checkout</span>
+          <a class="nav-bar-button" routerLink="/favorites"><img [src]="'assets/img/favorites-icon.svg'" alt="image" />Favorites</a>
         </li>
-        <li>{{getCurrentDishCoins() | number}}</li>
+        <li routerLinkActive="active">
+          <a class="nav-bar-button" routerLink="/checkout" *ngIf="hasValidOrder()"><img [src]="'assets/img/orders-icon.svg'" alt="image" />Checkout</a>
+          <a class="nav-bar-button inactive" *ngIf="hasValidOrder() == false"><img [src]="'assets/img/orders-icon.svg'" alt="image" />Checkout</a>
+        </li>
       </ul>
     </div>
   </div>
