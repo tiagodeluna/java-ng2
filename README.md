@@ -35,15 +35,15 @@ DishCoins is a currency of SkipTheDishes that can be used to purchase dishes wit
 
 ## How to Accumulate DishCoins?
 
-At each request made by the user in the application, points are accumulated that can be used to purchase food within SkipTheDishes. 
-These points are called Dish Coins. The score is calculated over the value of each order. Ex. Every $ 1.00 spent = 1 Point.
+At each request made by the user in the application, DishCoins are accumulated that can be used to purchase food within SkipTheDishes. 
+The DishCoins are calculated over the value of each order. Ex. Every $ 1.00 spent = 1 DishCoins.
 
-This score belongs to the user, points obtained by the purchase in a restaurant X can be used to redeem in the restaurant Y.
+This DishCoins belongs to the user, DishCoins obtained by the purchase in a restaurant X can be used to redeem in the restaurant Y.
 
 ## How to Pay with DishCoins?
 
-Each dish has its value in cash and also a value on DishCoins - calculated by the system. The user views the dish price in both cash and points.
-When making an order, if the user has enough points, the option "Pay with Dish Coins" is then enabled.
+Each dish has its value in cash and also a value on DishCoins - calculated by the system. 
+The user views the dish price in both cash and DishCoins  when making an order, if the user has enough DishCoins, the option "Pay with Dish Coins" is then enabled.
 
 ## How to execute?
 To execute the project, run the commands bellow:
