@@ -22,7 +22,7 @@ p, a, label {
 	padding: 0;
 }
 
-.page-header span {
+.page-header span.title {
 	margin-left: 20px;
 }
 
@@ -30,10 +30,43 @@ p, a, label {
 	margin: 0 1px;
     height: 48px;
     width: 48px;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
 }
 .page-header img:hover {
 	margin: 0 0;
     height: 50px;
     width: 50px;
+}
+
+.accordion {
+	font-family: Source Sans Pro;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+.accordion .ui-accordion-header /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+    align-items: center;
+	background-color: #BE2C2C;
+	border: none;
+	border-radius: 0px;
+	color: white;
+    display: flex;
+	font-family: Source Sans Pro;
+	font-size: 1.2em;
+	font-style: normal;
+	font-weight: 600;
+	height: 60px;
+}
+.accordion .ui-accordion-header a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+	color: #white;
+}
+.accordion .ui-accordion-header.ui-state-active /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+	background-color: #eee;
+}
+.accordion .ui-accordion-header a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+	color: white;
+	width: 100%;
+	text-decoration: none;
+}
+.accordion .ui-accordion-header.ui-state-active a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+	color: #777;
 }

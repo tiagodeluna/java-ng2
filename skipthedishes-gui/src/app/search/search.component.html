@@ -1,21 +1,24 @@
 <div class="row">
   <div class="col-xs-12">
+    <!-- PAGE HEADER -->
     <div class="page-header">
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <p routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
           <a routerLink="/"><img alt="Home" [src]="'assets/img/left-arrow-angle.svg'"></a>
-      </li>
+      </p>
       What kind of food?
     </div>
+    <!-- SEARCH BOX -->
     <div class="input-group input-group-lg">
       <input id="search" type="text" class="form-control search-box" [formControl]="textControl" placeholder="Search...">
       <label for="search" class="glyphicon glyphicon-search search" rel="tooltip" title="search"></label>
     </div>
   </div>
 </div>
+<!-- SEARCH RESULTS -->
 <div class="row" *ngIf="searchService.currentText!=='' && (searchService.currentDishesLines+searchService.currentRestaurantLines!==0)">
-  <div class="col-xs-12" style="">
+  <div class="col-xs-12 accordion" style="">
     <p-accordion>
-      <p-accordionTab [header]="getDishesHeader()">
+      <p-accordionTab [header]="getDishesHeader()" [class]="txt">
         <app-dish-list [dishes]="searchService.currentDishesSearch" (scroll)="searchService.loadDishes()"></app-dish-list>
       </p-accordionTab>
       <p-accordionTab [header]="getRestaurantsHeader()">
