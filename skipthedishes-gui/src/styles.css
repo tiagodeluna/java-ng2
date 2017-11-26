@@ -9,6 +9,7 @@ h1, h2 {
 	font-size: 2.2em;
 	font-weight: bold;
 	letter-spacing: 0.03em;
+	text-shadow: 1px 1px 2px black;
 	text-transform: uppercase;
 }
 
@@ -80,4 +81,7 @@ h1, h2 {
 }
 .accordion .ui-accordion-header.ui-state-active a {
 	color: #777;
+}
+.accordion .list-group-item {
+	height: 80px;
 }
