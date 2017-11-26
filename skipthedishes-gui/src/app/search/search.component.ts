@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
     this.textControl.valueChanges.debounceTime(800).subscribe(()=>{
       this.doSearch(this.textControl.value);
     });
-    this.doSearch();
+    this.doSearch(this.searchService.currentText);
   }
 
 

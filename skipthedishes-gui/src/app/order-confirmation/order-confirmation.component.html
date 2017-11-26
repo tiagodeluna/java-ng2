@@ -15,11 +15,10 @@
     <div class="col-xs-6"><p class="title-2">{{currentRestaurant.name}}</p>
       <p>{{currentRestaurant.address}}</p></div>
     <div class="col-xs-6"> <p>Time to wait: {{currentRestaurant.timeToWait}}</p>
-      <p>Restaurant Rating: {{currentOrder.reviewRating}}</p>
+      <p>Your Restaurant Rating: {{currentOrder.reviewRating}}</p>
     </div>
   </div>
   <hr>
-  <p class="title-2">Dishes</p>
   <div class="row border-list-title" >
     <div class="col-xs-1 title-3">Delete</div>
     <div class="col-xs-1 title-3">Your Rating</div>
@@ -47,17 +46,20 @@
       </p>
      </div>
   </div>
-  <hr>
-  <p class="title-2">TOTAL: {{currentOrder.total | number:'2.2-2'}}</p>
-  <p class="title-2">TOTAL in DISH COINS: {{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}</p>
+  <br>
+  <p class="title-2">TOTAL: ${{currentOrder.total | number:'2.2-2'}}</p>
+  <p class="title-2">TOTAL in DISH COINS: D${{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}</p>
   <div class="row">
-    <div class="col-xs-6"><button type="button" class="btn btn-default" (click)="confirmOrder(false)">CASH</button></div>
-    <div class="col-xs-6" *ngIf="isDishCashAvailable()"><button type="button" class="btn btn-success"  (click)="confirmOrder(true)">DISH
-      CASH</button></div>
+    <div class="col-xs-2"></div>
+    <div
+      class="col-xs-4 col-xs-push-2"><button type="button" class="btn btn-default" (click)="confirmOrder(false)">Pay
+      With Cash
+    </button></div>
+    <div class="col-xs-4" *ngIf="isDishCashAvailable()">
+      <button type="button" class="btn btn-success"
+              (click)="confirmOrder(true)">Pay With DishCoin</button>
+    </div>
   </div>
-
-
-
 
 </ng-template>
 

@@ -35,7 +35,6 @@ export class SearchService {
     this.currentRestaurantsAllLoaded=false;
     this.currentDishesSearch.splice(0);
     this.currentRestaurantSearch.splice(0);
-
     this.loadRestaurants(text);
     this.loadDishes(text);
 
