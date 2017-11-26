@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -23,6 +24,7 @@ public class OrderResource {
 
     @PostMapping
     public ResponseEntity<Order> create(@Valid @RequestBody Order order) {
+        order.setDate(LocalDateTime.now());
         Order orderSaved = orderService.save(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderSaved);
     }

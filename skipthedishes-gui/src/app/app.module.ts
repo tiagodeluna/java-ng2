@@ -20,6 +20,9 @@ import { DishListComponent } from './dish-list/dish-list.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import {RouterModule} from "@angular/router";
+import {OrderService} from "./services/order/order.service";
 
 
 @NgModule({
@@ -32,19 +35,21 @@ import { FavoritesComponent } from './favorites/favorites.component';
     DishItemListComponent,
     DishListComponent,
     RestaurantListComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    RestaurantDetailComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    RouterModule,
     StepsModule,
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
     AccordionModule
   ],
-  providers: [CustomerService,SearchService],
+  providers: [CustomerService,SearchService,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

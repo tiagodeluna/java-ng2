@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Dish} from "./dish.model";
 import {Restaurant} from "./restaurant.model";
+import {Observable} from "rxjs/Observable";
 
 
 @Injectable()
@@ -24,6 +25,8 @@ export class SearchService {
 
   sizeSearch: number=20;
 
+  selectedRestaurant:Restaurant;
+
   doSearch(text: string) {
     this.currentText = "";
     this.currentDishesLines = 0;
@@ -32,7 +35,7 @@ export class SearchService {
     this.currentRestaurantsAllLoaded=false;
     this.currentDishesSearch.splice(0);
     this.currentRestaurantSearch.splice(0);
-    if (text && text.length >= 3) {
+    if (text && text.length >= 1) {
       this.loadRestaurants(text);
       this.loadDishes(text);
     }
@@ -83,6 +86,10 @@ export class SearchService {
       this.currentText = text;
     });
     console.log(this.currentDishesSearch);
+  }
+
+  public getDishesFromRestaurant(restaurantId:string):Observable<Dish[]>{
+    return this.http.get<Dish[]>('/api/restaurants/'+restaurantId+'/dishes');
   }
 
 }

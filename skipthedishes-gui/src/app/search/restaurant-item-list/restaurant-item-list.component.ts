@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Restaurant} from "../../services/search/restaurant.model";
 import {CustomerService} from "../../services/customer/customer.service";
+import {SearchService} from "../../services/search/search.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-restaurant-item-list',
@@ -14,7 +16,7 @@ export class RestaurantItemListComponent implements OnInit {
 
    distance:number;
 
-  constructor(private customerService:CustomerService) {
+  constructor(private customerService:CustomerService,private searchService:SearchService,private router:Router) {
     this.distance =this.getRandomDistance();
 
   }
@@ -45,6 +47,14 @@ export class RestaurantItemListComponent implements OnInit {
     }else{
       this.customerService.addFavoriteRestaurant(this.restaurant);
     }
+  }
+
+  goToRestaurant(){
+    this.searchService.selectedRestaurant = this.restaurant;
+
+    this.router.navigate(['/restaurant']);
+
+
   }
 
 }
