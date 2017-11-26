@@ -1,0 +1,12 @@
+<svg width="16" height="15" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Glyph - For You</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(431 1842)">
+<g id="Glyph - For You">
+<use xlink:href="#path0_fill" transform="translate(-431 -1842)" fill="#919291"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 8.01367 14.6589C 8.00911 14.6615 8.00456 14.6641 8 14.6667C 5.66667 13.3333 0 8.33333 0 4.33333C 0 1.9401 1.75602 0 4.33333 0C 6 0 7.14421 1.02604 8 2C 8.75065 1.03239 10 0 11.6667 0C 14.244 0 16 1.95117 16 4.3444C 16 8.33333 11 12.6667 8.0459 14.6777C 8.03499 14.6715 8.02441 14.6652 8.01367 14.6589Z"/>
+</defs>
+</svg>

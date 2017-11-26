@@ -1,0 +1,18 @@
+<svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Union</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(341 1914)">
+<g id="Union">
+<use xlink:href="#path0_fill" transform="translate(-341 -1914)" fill="#BE2C2C"/>
+<use xlink:href="#path1_fill" transform="translate(-341 -1914)" fill="#BE2C2C"/>
+<use xlink:href="#path2_fill" transform="translate(-341 -1914)" fill="#BE2C2C"/>
+<use xlink:href="#path3_fill" transform="translate(-341 -1914)" fill="#BE2C2C"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0.347826 0L 0 0L 0 0.347826L 0 15.6522L 0 16L 0.347826 16L 15.6522 16L 16 16L 16 15.6522L 16 0.347826L 16 0L 15.6522 0L 0.347826 0ZM 0.695652 15.3043L 0.695652 0.695652L 15.3043 0.695652L 15.3043 15.3043L 0.695652 15.3043ZM 6.26087 4.17391L 13.913 4.17391L 13.913 3.47826L 6.26087 3.47826L 6.26087 4.17391ZM 6.26087 8.34783L 13.913 8.34783L 13.913 7.65217L 6.26087 7.65217L 6.26087 8.34783ZM 6.26087 12.5217L 13.913 12.5217L 13.913 11.8261L 6.26087 11.8261L 6.26087 12.5217Z"/>
+<path id="path1_fill" d="M 3.13043 4.52174L 4.52174 4.52174L 4.52174 3.13043L 3.13043 3.13043L 3.13043 4.52174Z"/>
+<path id="path2_fill" d="M 3.13043 8.69565L 4.52174 8.69565L 4.52174 7.30435L 3.13043 7.30435L 3.13043 8.69565Z"/>
+<path id="path3_fill" d="M 3.13043 12.8696L 4.52174 12.8696L 4.52174 11.4783L 3.13043 11.4783L 3.13043 12.8696Z"/>
+</defs>
+</svg>
