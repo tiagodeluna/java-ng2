@@ -12,6 +12,7 @@ export class DishListComponent implements OnInit {
   constructor() { }
   @Input() dishes:Dish[]=[];
   @Output() scroll = new EventEmitter();
+  @Input()  maxHeight:number=500;
 
 
   ngOnInit() {

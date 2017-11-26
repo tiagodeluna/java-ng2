@@ -19,14 +19,15 @@ export class SearchComponent implements OnInit {
     this.textControl = new FormControl(this.searchService.currentText);
 
     this.textControl.valueChanges.debounceTime(800).subscribe(()=>{
-      this.doSearch();
-    })
+      this.doSearch(this.textControl.value);
+    });
+    this.doSearch();
   }
 
 
-  doSearch(){
+  doSearch(text:string=""){
     console.log("do search")
-    this.searchService.doSearch(this.textControl.value);
+    this.searchService.doSearch(text);
   }
 
   getDishesHeader(){

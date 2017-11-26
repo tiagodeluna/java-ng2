@@ -85,3 +85,12 @@ h1, h2 {
 .accordion .list-group-item {
 	height: 80px;
 }
+
+.is-table-row {
+  display: table;
+}
+.is-table-row [class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+}
