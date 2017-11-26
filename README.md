@@ -26,7 +26,7 @@ All the sites that have been searched, both in Brazil and in Canada, follow the 
 * User Reviews
 
 One thing that has been observed that in the sites that has been visited, none has the philosophy of cashback.
-As the proposal was creative, I think we should implement something a bit innovative in the issue of delivery.
+As the proposal was creative, was implemented something a bit innovative in the issue of delivery.
 So we created DishCoins.
 
 ## What is DishCoins? 
