@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -27,6 +28,8 @@ public class OrderServiceImplTest extends BaseTest {
 	private OrderRepository orderRepository;
 	@Mock
 	private CustomerRepository customerRepository;
+	@Mock
+	private ApplicationEventPublisher publisher;
 
 	@InjectMocks
 	private OrderServiceImpl service;
