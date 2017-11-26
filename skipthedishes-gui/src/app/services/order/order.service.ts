@@ -15,6 +15,7 @@ export class OrderService {
 
   }
 
+  dishCoinRate:number = 10;
 
   currentRestaurant: Restaurant;
 

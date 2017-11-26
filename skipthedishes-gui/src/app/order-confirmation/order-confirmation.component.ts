@@ -29,7 +29,7 @@ export class OrderConfirmationComponent implements OnInit {
   }
 
   isDishCashAvailable(){
-    return this.customerService.currentCustomer.dishCoin >= this.currentOrder.total;
+    return this.customerService.currentCustomer.dishCoin >= (this.currentOrder.total* this.orderService.dishCoinRate);
   }
 
   deleteItem(item:Item){

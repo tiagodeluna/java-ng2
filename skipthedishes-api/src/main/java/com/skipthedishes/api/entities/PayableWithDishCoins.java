@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "valueInDishCoins" })
 public interface PayableWithDishCoins {
 
-    Double RATE = 25.0;
+    Double RATE = 10.0;
 
     Double getValueInDishCoins();
 
