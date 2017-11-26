@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* HTML ELEMENTS */
 p, a, label {
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -96,8 +96,8 @@ h2 {
 	width: 50px;
 }
 .accordion-description {
-	width: 60%;
-	min-width: 60%;
+	width: 70%;
+	min-width: 70%;
 }
 
 /* RATING BOX */
@@ -126,7 +126,12 @@ h2 {
   vertical-align: middle;
 }
 
-.center-text{
+/* VARIED CLASSES */
+.profile-image {
+	height: 32px;
+	width: 32px;
+}
+.center-text {
   text-align: center;
 }
 

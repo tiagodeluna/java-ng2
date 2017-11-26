@@ -8,11 +8,14 @@ import com.skipthedishes.api.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Collections;
 import java.util.List;
+
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.match;
 
 public class DishRepositoryImpl implements DishRepositoryQuery {
 

@@ -1,5 +1,6 @@
 package com.skipthedishes.api.services.order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -89,6 +90,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order findById(String id) {
+        List<Integer> integers = new ArrayList<Integer>();
+        integers.stream().mapToInt(i -> i.intValue()).sum();
+
         Order order = this.orderRepository.findOne(id);
         if (order == null) {
             throw new EmptyResultDataAccessException(1);

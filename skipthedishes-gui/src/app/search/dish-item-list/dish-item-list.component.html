@@ -1,6 +1,6 @@
 <div class="row is-table-row">
   <div class="col-xs-1"><p class="rating r2">{{dish.rating}}</p></div>
-  <div class="col-xs-7 accordion-description"><p>{{dish.name}} {{dish.description}}</p></div>
+  <div class="col-xs-8 accordion-description"><p>{{dish.name}} {{dish.description}}</p></div>
   <div class="col-xs-1"><p><a class="fa {{getFavIcon()}}" (click)="toggleFavorite()"></a></p></div>
   <div class="col-xs-1"><p>${{dish.price}}</p></div>
   <div class="col-xs-1"><p><a class="fa fa-shopping-cart" (click)="addToOrder()"></a></p></div>
