@@ -1,0 +1,33 @@
+p {
+  color: #000000;
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  opacity: 0.7;
+  padding: 20px 0 0 10px;
+}
+.restaurant-title {
+    align-items: flex-end;
+	background-color: #BE2C2C;
+	background-image: url('../../assets/img/restaurant-bg2.png');
+    display: flex;
+	height: 180px;
+	padding-left: 45px;
+	padding-bottom: 25px;
+	width: 100%;
+}
+.restaurant-title img {
+	position: absolute;
+	width: 60px;
+	top: 60px;
+	left: 86%;
+}
+.restaurant-title span {
+	position: absolute;
+	width: 20px;
+	width: 60px;
+	top: 120px;
+	left: 86%;
+}

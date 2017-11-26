@@ -8,59 +8,59 @@
 </div>
 <br>
 <ng-template ngIf="currentOrder!==null">
-  <p class="title-customer-name">Hi {{customerService.currentCustomer.firstName}},</p>
-  <p>Please, check the informations bellow and confirm your order:</p>
-  <hr>
-  <div class="row">
-    <div class="col-xs-6"><p class="title-2">{{currentRestaurant.name}}</p>
-      <p>{{currentRestaurant.address}}</p></div>
-    <div class="col-xs-6"> <p>Time to wait: {{currentRestaurant.timeToWait}}</p>
-      <p>Your Restaurant Rating: {{currentOrder.reviewRating}}</p>
+  <div class="order-content">
+    <p class="title-customer-name">Hi {{customerService.currentCustomer.firstName}},</p>
+    <p>Please, check the informations bellow and confirm your order:</p>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6"><p class="title-2">{{currentRestaurant.name}}</p>
+        <p>{{currentRestaurant.address}}</p></div>
+      <div class="col-xs-6"> <p>Time to wait: {{currentRestaurant.timeToWait}}</p>
+        <p>Your Restaurant Rating: {{currentOrder.reviewRating}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row border-list-title" >
+      <div class="col-xs-1 title-3">Delete</div>
+      <div class="col-xs-1 title-3">Your Rating</div>
+      <div class="col-xs-6 title-3">Dish Name</div>
+      <div class="col-xs-1 title-3">Price</div>
+      <div class="col-xs-2 title-3">Amount</div>
+      <div class="col-xs-1 title-3">Total</div>
+    </div>
+    <div class="row is-table-row border-list-line" *ngFor="let item of currentOrder.items">
+      <div class="col-xs-1" (click)="deleteItem(item)"><span class="fa fa-minus"></span></div>
+      <div class="col-xs-1">{{item.reviewRating}}</div>
+      <div class="col-xs-6">
+        <p class="title-4">{{item.dish.name}}</p>
+        <p>{{item.dish.description}}</p> </div>
+      <div class="col-xs-1">
+        <p class="title-4 center-text">${{item.dish.price | number:'2.2-2'}}</p>
+      </div>
+      <div class="col-xs-2">
+        <p class=" title-4 center-text">
+          {{item.amount}}
+        </p></div>
+      <div class="col-xs-1">
+        <p class=" title-4 center-text">
+          ${{item.amount * item.dish.price | number:'2.2-2' }}
+        </p>
+       </div>
+    </div>
+    <br>
+    <p class="title-2">TOTAL: ${{currentOrder.total | number:'2.2-2'}}</p>
+    <p class="title-2">TOTAL in DISH COINS: D${{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}</p>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div
+        class="col-xs-4 col-xs-push-2">
+        <button type="button" class="btn btn-default" (click)="confirmOrder(false)">Pay With Cash</button>
+      </div>
+      <div class="col-xs-4" *ngIf="isDishCashAvailable()">
+        <button type="button" class="btn btn-success" (click)="confirmOrder(true)">Pay With DishCoin</button>
+      </div>
     </div>
   </div>
-  <hr>
-  <div class="row border-list-title" >
-    <div class="col-xs-1 title-3">Delete</div>
-    <div class="col-xs-1 title-3">Your Rating</div>
-    <div class="col-xs-6 title-3">Dish Name</div>
-    <div class="col-xs-1 title-3">Price</div>
-    <div class="col-xs-2 title-3">Amount</div>
-    <div class="col-xs-1 title-3">Total</div>
-  </div>
-  <div class="row is-table-row border-list-line" *ngFor="let item of currentOrder.items">
-    <div class="col-xs-1" (click)="deleteItem(item)"><span class="fa fa-minus"></span></div>
-    <div class="col-xs-1">{{item.reviewRating}}</div>
-    <div class="col-xs-6">
-      <p class="title-4">{{item.dish.name}}</p>
-      <p>{{item.dish.description}}</p> </div>
-    <div class="col-xs-1">
-      <p class="title-4 center-text">${{item.dish.price | number:'2.2-2'}}</p>
-    </div>
-    <div class="col-xs-2">
-      <p class=" title-4 center-text">
-        {{item.amount}}
-      </p></div>
-    <div class="col-xs-1">
-      <p class=" title-4 center-text">
-        ${{item.amount * item.dish.price | number:'2.2-2' }}
-      </p>
-     </div>
-  </div>
-  <br>
-  <p class="title-2">TOTAL: ${{currentOrder.total | number:'2.2-2'}}</p>
-  <p class="title-2">TOTAL in DISH COINS: D${{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}</p>
-  <div class="row">
-    <div class="col-xs-2"></div>
-    <div
-      class="col-xs-4 col-xs-push-2"><button type="button" class="btn btn-default" (click)="confirmOrder(false)">Pay
-      With Cash
-    </button></div>
-    <div class="col-xs-4" *ngIf="isDishCashAvailable()">
-      <button type="button" class="btn btn-success"
-              (click)="confirmOrder(true)">Pay With DishCoin</button>
-    </div>
-  </div>
-
 </ng-template>
 
 

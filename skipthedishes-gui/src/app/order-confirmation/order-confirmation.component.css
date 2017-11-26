@@ -8,6 +8,9 @@
 
   color: #808080;
 }
+.order-content {
+  padding: 5px 25px;
+}
 #p{
   font-family: Roboto, sans-serif;
   font-style: normal;
@@ -70,4 +73,8 @@
   border-bottom: #ebebeb;
   border-bottom-width: thin;
   border-bottom-style: solid;
+}
+.btn {
+  padding: 5px 7px;
+  margin: 10px 9px;
 }

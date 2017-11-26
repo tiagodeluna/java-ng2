@@ -1,8 +1,12 @@
+<div class="restaurant-title">
+	<h1>{{restaurant.name}}</h1>
+	<img alt="Picture" [src]="'assets/img/restaurant-icon.png'">
+	<span class="rating r1">{{restaurant.rating}}</span>
+</div>
 <p>
- {{restaurant.name}}
-  {{restaurant.address}}
-  delivery fee: {{restaurant.deliveryFee}}
-  rating: {{restaurant.rating}}
-  time to wait: {{restaurant.timeToWait}}
+  {{restaurant.address}}<br />
+  Delivery fee: {{restaurant.deliveryFee}}<br />
+  Time to wait: {{restaurant.timeToWait}}
 </p>
+<h2>Dishes</h2>
 <app-dish-list [dishes]="dishes"></app-dish-list>
