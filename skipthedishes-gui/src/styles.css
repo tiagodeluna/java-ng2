@@ -81,3 +81,12 @@ h1, h2 {
 .accordion .ui-accordion-header.ui-state-active a {
 	color: #777;
 }
+
+.is-table-row {
+  display: table;
+}
+.is-table-row [class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+}

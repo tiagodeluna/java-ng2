@@ -11,6 +11,7 @@ export class RestaurantListComponent implements OnInit {
   constructor() { }
   @Input() restaurants:Restaurant[]=[];
   @Output() scroll = new EventEmitter();
+  @Input()  maxHeight:number=500;
 
 
   ngOnInit() {

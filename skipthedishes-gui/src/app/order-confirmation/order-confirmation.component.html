@@ -1,25 +1,64 @@
-<ng-template ngIf="currentOrder!==null">
-  <p>
-    {{currentRestaurant.name}}
-    {{currentRestaurant.address}}
-    delivery fee: {{currentRestaurant.deliveryFee}}
-    rating: {{currentOrder.reviewRating}}
-    time to wait: {{currentRestaurant.timeToWait}}
-  </p>
-
-  <div class="row" *ngFor="let item of currentOrder.items">
-    <div class="col-xs-1" (click)="deleteItem(item)">delete</div>
-    <div class="col-xs-1">{{item.reviewRating}}</div>
-    <div class="col-xs-6">{{item.dish.name}} {{item.dish.description}}</div>
-    <div class="col-xs-1">{{item.dish.price | number:'2.2-2'}}</div>
-    <div class="col-xs-2">{{item.amount}}</div>
-    <div class="col-xs-1">{{item.amount * item.dish.price | number:'2.2-2' }}</div>
+<div class="row">
+  <div class="col-xs-12">
+    <!-- PAGE HEADER -->
+    <div class="page-title">
+      <h1> &nbsp; CONFIRM ORDER</h1>
+    </div>
   </div>
-  TOTAL: {{currentOrder.total | number:'2.2-2'}}
-  TOTAL in DISH COINS: {{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}
+</div>
+<br>
+<ng-template ngIf="currentOrder!==null">
+  <p class="title-customer-name">Hi {{customerService.currentCustomer.firstName}},</p>
+  <p>Please, check the informations bellow and confirm your order:</p>
+  <hr>
+  <div class="row">
+    <div class="col-xs-6"><p class="title-2">{{currentRestaurant.name}}</p>
+      <p>{{currentRestaurant.address}}</p></div>
+    <div class="col-xs-6"> <p>Time to wait: {{currentRestaurant.timeToWait}}</p>
+      <p>Restaurant Rating: {{currentOrder.reviewRating}}</p>
+    </div>
+  </div>
+  <hr>
+  <p class="title-2">Dishes</p>
+  <div class="row border-list-title" >
+    <div class="col-xs-1 title-3">Delete</div>
+    <div class="col-xs-1 title-3">Your Rating</div>
+    <div class="col-xs-6 title-3">Dish Name</div>
+    <div class="col-xs-1 title-3">Price</div>
+    <div class="col-xs-2 title-3">Amount</div>
+    <div class="col-xs-1 title-3">Total</div>
+  </div>
+  <div class="row is-table-row border-list-line" *ngFor="let item of currentOrder.items">
+    <div class="col-xs-1" (click)="deleteItem(item)"><span class="fa fa-minus"></span></div>
+    <div class="col-xs-1">{{item.reviewRating}}</div>
+    <div class="col-xs-6">
+      <p class="title-4">{{item.dish.name}}</p>
+      <p>{{item.dish.description}}</p> </div>
+    <div class="col-xs-1">
+      <p class="title-4 center-text">${{item.dish.price | number:'2.2-2'}}</p>
+    </div>
+    <div class="col-xs-2">
+      <p class=" title-4 center-text">
+        {{item.amount}}
+      </p></div>
+    <div class="col-xs-1">
+      <p class=" title-4 center-text">
+        ${{item.amount * item.dish.price | number:'2.2-2' }}
+      </p>
+     </div>
+  </div>
+  <hr>
+  <p class="title-2">TOTAL: {{currentOrder.total | number:'2.2-2'}}</p>
+  <p class="title-2">TOTAL in DISH COINS: {{(currentOrder.total * orderService.dishCoinRate) | number:'2.2-2'}}</p>
+  <div class="row">
+    <div class="col-xs-6"><button type="button" class="btn btn-default" (click)="confirmOrder(false)">CASH</button></div>
+    <div class="col-xs-6" *ngIf="isDishCashAvailable()"><button type="button" class="btn btn-success"  (click)="confirmOrder(true)">DISH
+      CASH</button></div>
+  </div>
 
-  <button type="button" class="btn btn-default" (click)="confirmOrder(false)">CASH</button>
-  <button type="button" class="btn btn-success" *ngIf="isDishCashAvailable()"  (click)="confirmOrder(true)">DISH CASH</button>
+
+
+
 </ng-template>
 
 
