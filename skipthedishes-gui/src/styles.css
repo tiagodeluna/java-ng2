@@ -1,17 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 p, a, label {
-	font-family: Source Sans Pro;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1, h2 {
 	color: white;
-	font-family: Source Sans Pro;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 2.2em;
-	font-weight: 700;
+	font-weight: bold;
 	letter-spacing: 0.03em;
 	text-transform: uppercase;
 }
 
+/* PAGE HEADER */
 .page-header {
     align-items: center;
 	background: #BE2C2C;
@@ -47,8 +48,9 @@ h1, h2 {
     width: 50px;
 }
 
+/* ACCORDION THAT DISPLAYS THE DISHES AND RESTAURANTS */
 .accordion {
-	font-family: Source Sans Pro;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1em;
 	text-transform: uppercase;
 }
@@ -59,7 +61,7 @@ h1, h2 {
 	border-radius: 0px;
 	color: white;
     display: flex;
-	font-family: Source Sans Pro;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1.2em;
 	font-style: normal;
 	font-weight: 600;
@@ -76,6 +78,6 @@ h1, h2 {
 	width: 100%;
 	text-decoration: none;
 }
-.accordion .ui-accordion-header.ui-state-active a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+.accordion .ui-accordion-header.ui-state-active a {
 	color: #777;
 }
