@@ -2,6 +2,10 @@
 	width: 100%;
 }
 
+#search {
+	z-index: 1;
+}
+
 .search-box {
 	background: #4D5157;
 	border: none;
@@ -15,18 +19,19 @@
 	text-transform: uppercase;
 }
 
-.glyphicon {
+.glyphicon.search {
     position: absolute;
 	color: rgba(199, 199, 199, 0.5);
     left: 4px;
     height: 40px;
     width: 40px;
-    text-align: center;
     padding: 10px 0;
     font-size: 1.8em;
+    text-align: center;
     top: 7px;
     z-index: 2;
 }
+
 /*
 .icon-addon:hover .glyphicon {
     color: #2580db;

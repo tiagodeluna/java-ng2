@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+p, a, label {
+	font-family: Source Sans Pro;
+}
+
+.page-header {
+    align-items: center;
+	background: #BE2C2C;
+	border: none;
+	border-radius: 0px;
+	color: rgba(230, 230, 230, 1);
+    display: flex;
+	font-family: Source Sans Pro;
+	font-size: 1.5em;
+	font-style: normal;
+	font-weight: 600;
+	height: 60px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	padding-left: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.page-header span {
+	margin-left: 20px;
+}
+
+.page-header img {
+	margin: 0 1px;
+    height: 48px;
+    width: 48px;
+    padding: 10px 0;
+}
+.page-header img:hover {
+	margin: 0 0;
+    height: 50px;
+    width: 50px;
+}
