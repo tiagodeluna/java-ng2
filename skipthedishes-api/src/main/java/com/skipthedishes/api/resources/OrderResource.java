@@ -1,6 +1,8 @@
 package com.skipthedishes.api.resources;
 
-import com.skipthedishes.api.entities.*;
+import com.skipthedishes.api.entities.Order;
+import com.skipthedishes.api.entities.OrderStatusEnum;
+import com.skipthedishes.api.entities.PaymentMethodsEnum;
 import com.skipthedishes.api.exceptions.InvalidOrderTotalException;
 import com.skipthedishes.api.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;

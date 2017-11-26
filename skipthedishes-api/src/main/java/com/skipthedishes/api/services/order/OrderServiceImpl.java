@@ -2,8 +2,10 @@ package com.skipthedishes.api.services.order;
 
 import java.util.List;
 
+import com.skipthedishes.api.services.event.OrderFinishedEvent;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +23,13 @@ public class OrderServiceImpl implements OrderService {
 
     private OrderRepository orderRepository;
     private CustomerRepository customerRepository;
+    private ApplicationEventPublisher publisher;
 
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository, ApplicationEventPublisher publisher) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
+        this.publisher = publisher;
     }
 
     @Override
@@ -43,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 
     public Order saveAndFinishOrder(Order order) throws InvalidOrderTotalException {
         Order savedOrder = this.save(order);
-        this.finishOrder(savedOrder.getId(),savedOrder.getPaymentMethod());
+        this.finishOrder(savedOrder.getId(), savedOrder.getPaymentMethod());
         return savedOrder;
     }
 
@@ -52,14 +56,14 @@ public class OrderServiceImpl implements OrderService {
         Boolean successfulPayment;
 
         Order order = findById(id);
-        
+
         if (order == null) {
-        	return Boolean.FALSE;
+            return Boolean.FALSE;
         }
-        
+
         //Check if order total is valid
         if (order.getTotal() == null || order.getTotal() <= 0) {
-        	throw new InvalidOrderTotalException(order.getTotal());
+            throw new InvalidOrderTotalException(order.getTotal());
         }
 
         Customer customer = this.customerRepository.findOne(order.getCustomerId());
@@ -83,6 +87,8 @@ public class OrderServiceImpl implements OrderService {
         }
 
         this.orderRepository.save(order);
+
+        publisher.publishEvent(new OrderFinishedEvent(this, order));
 
         return successfulPayment;
     }
