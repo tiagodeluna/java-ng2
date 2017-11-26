@@ -1,0 +1,34 @@
+.input-group {
+	width: 100%;
+}
+
+.search-box {
+	background: #4D5157;
+	border: none;
+	border-radius: 0px;
+	color: rgba(199, 199, 199, 0.5);
+	font-family: Source Sans Pro;
+	font-size: 1.6em;
+	height: 60px;
+	letter-spacing: 0.03em;
+	padding-left: 45px;
+	text-transform: uppercase;
+}
+
+.glyphicon {
+    position: absolute;
+	color: rgba(199, 199, 199, 0.5);
+    left: 4px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.8em;
+    top: 7px;
+    z-index: 2;
+}
+/*
+.icon-addon:hover .glyphicon {
+    color: #2580db;
+}
+*/
