@@ -4,10 +4,10 @@ Build the future of food delivery app that scales to millions of users Important
 
 ## Team
 
-* [Diego Santos](https://www.behance.net/santosdiego)
-* [Igor Harã](https://github.com/igorhara)
-* [Leonardo Dias](https://github.com/leonardodias76)
-* [Tiago Luna](https://github.com/tiagodeluna/)
+* [Diego Santos](https://www.behance.net/santosdiego) -  https://www.linkedin.com/in/osantosdiego/
+* [Igor Harã](https://github.com/igorhara) - https://www.linkedin.com/in/igorhara/
+* [Leonardo Dias](https://github.com/leonardodias76) - https://www.linkedin.com/in/leonardo-dias-oliveira/
+* [Tiago Luna](https://github.com/tiagodeluna/) - https://www.linkedin.com/in/tiagodeluna/?locale=en_US
 
 ## Technologies
 * Angular 2
@@ -18,12 +18,14 @@ Build the future of food delivery app that scales to millions of users Important
 
 ## Specifications
 All the sites that have been searched, both in Brazil and in Canada, follow the same philosophy, that is, filters by:
-* Kind of food
-* Location
-* Lowest or highest price
-* Free shipping or not
-* The best evaluated
-* User Reviews
+* Kind of food (planned but not done)
+* Location (planned but not done)
+* Lowest or highest price (planned but not done)
+* Free shipping or not (planned but not done)
+* The best evaluated (partially implemented)
+* User Reviews (partially implemented)
+* Integrated search of dishes and restaurants (done)
+* Rating of dish and restaurant (rating is implemented with random rating generation)
 
 One thing that has been observed that in the sites that has been visited, none has the philosophy of cashback.
 As the proposal was creative, was implemented something a bit innovative in the issue of delivery.
