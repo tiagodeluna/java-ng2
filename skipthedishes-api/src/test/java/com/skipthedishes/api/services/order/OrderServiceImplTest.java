@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.skipthedishes.api.BaseTest;
@@ -43,12 +44,12 @@ public class OrderServiceImplTest extends BaseTest {
 		this.orderSaved = Mockito.spy(new Order());
 		this.orderSaved.setId(this.orderId);
 		this.orderSaved.setStatus(OrderStatusEnum.PROCESSING);
-		this.orderSaved.setTotal(1000.0);
+		this.orderSaved.setTotal(10.0);
 		this.orderSaved.setPaymentMethod(PaymentMethodsEnum.DISH_COINS);
 		
 		this.customer = Mockito.spy(new Customer());
 		this.customer.setId("111");
-		this.customer.setDishCoin(30000);
+		this.customer.setDishCoin(100);
 		this.orderSaved.setCustomerId(this.customer.getId());
 	}
 
@@ -108,12 +109,15 @@ public class OrderServiceImplTest extends BaseTest {
 		//Arrange
 		String invalidId = "99999";
 		Mockito.when(this.orderRepository.findOne(invalidId)).thenReturn(null);
-		
-		//Act
-		Boolean actual = this.service.finishOrder(invalidId, PaymentMethodsEnum.DISH_COINS);
-		
-		//Assertion
-		assertEquals(Boolean.FALSE, actual);
+
+		try {
+			//Act
+			Boolean actual = this.service.finishOrder(invalidId, PaymentMethodsEnum.DISH_COINS);
+			//Assertion
+			fail("Should have thrown EmptyResultDataAccessException");
+		} catch (EmptyResultDataAccessException e) {
+			//Good!
+		}
 	}
 
 	@Test
@@ -151,7 +155,7 @@ public class OrderServiceImplTest extends BaseTest {
 	@Test
 	public void finishOrder_whenDishCoinsAreInsufficient_thenReturnsFalse() throws InvalidOrderTotalException {
 		//Arrange
-		this.customer.setDishCoin(500);
+		this.customer.setDishCoin(5);
 		Mockito.when(this.orderRepository.findOne(this.orderId)).thenReturn(this.orderSaved);
 		Mockito.when(this.customerRepository.findOne(this.orderSaved.getCustomerId())).thenReturn(this.customer);
 
