@@ -24,6 +24,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import {RouterModule} from "@angular/router";
 import {OrderService} from "./services/order/order.service";
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import {AuthCanActivate} from "./auth-can-activate.service";
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     InfiniteScrollModule,
     AccordionModule
   ],
-  providers: [CustomerService,SearchService,OrderService],
+  providers: [CustomerService,SearchService,OrderService,AuthCanActivate],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
