@@ -90,8 +90,21 @@ h1, h2 {
 	width: 50px;
 }
 .accordion-description {
-	width: 70%;
-	min-width: 70%;
+	width: 60%;
+	min-width: 60%;
+}
+
+/* RATING BOX */
+.rating {
+	background-color: #BE2C2C;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+.rating.r2 {
+	padding: 2px 2px;
+	font-size: 0.8em;
 }
 
 /* ADJUSTMENT FOR TABLE-STYLED ELEMENTS */
