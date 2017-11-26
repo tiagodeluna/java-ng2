@@ -10,16 +10,16 @@ import {Restaurant} from "../services/search/restaurant.model";
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  constructor(public orderService:OrderService) { }
+  constructor(public orderService:OrderService) {
+    this.orderService.createOrder();
+    this.currentOrder = this.orderService.currentOrder;
+    this.currentRestaurant = this.orderService.currentRestaurant; }
 
   currentOrder:Order;
 
   currentRestaurant:Restaurant;
 
   ngOnInit() {
-    this.orderService.createOrder();
-    this.currentOrder = this.orderService.currentOrder;
-    this.currentRestaurant = this.orderService.currentRestaurant;
   }
 
   confirmOrder(dishCash:boolean){

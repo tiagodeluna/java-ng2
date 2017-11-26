@@ -26,6 +26,6 @@ export class NavBarComponent implements OnInit {
   }
 
   hasValidOrder(){
-    return this.orderService.currentRestaurant!==null;
+    return this.orderService.currentRestaurant!=null;
   }
 }

@@ -58,6 +58,9 @@ export class OrderService {
 
 
   createOrder(){
+    if(!this.currentRestaurant){
+      return;
+    }
     var order:Order = new Order();
 
     order.restaurantId = this.currentRestaurant.id;
