@@ -62,6 +62,7 @@
 				<version>1.6.0</version>
 				<executions>
 					<execution>
+						<phase>generate-resources</phase>
 						<goals>
 							<goal>exec</goal>
 						</goals>
@@ -81,8 +82,8 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-resources</id>
-						<phase>validate</phase>
+						<id>copy-angular-resources</id>
+						<phase>process-resources</phase>
 						<goals><goal>copy-resources</goal></goals>
 						<configuration>
 							<outputDirectory>${basedir}/target/classes/static/</outputDirectory>
