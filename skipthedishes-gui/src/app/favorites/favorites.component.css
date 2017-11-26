@@ -1,0 +1,10 @@
+.favs-title {
+    align-items: flex-end;
+	background-color: #BE2C2C;
+	background-image: url('../../assets/img/restaurant-bg.png');
+    display: flex;
+	height: 180px;
+	padding-left: 45px;
+	padding-bottom: 25px;
+	width: 100%;
+}

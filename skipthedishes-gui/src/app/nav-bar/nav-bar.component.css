@@ -6,17 +6,6 @@
     display: block;
 }
 
-/*
-.nav-bar-button:hover img {
-	display: block;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-    background: url(../../assets/img/favorites-icon-active.svg) no-repeat;
-	width: 32px;
-	height: 32px;
-    left: 50%;
-}
-*/
 .nav-bar-button {
 	color: #929292;
 	font-family: Source Sans Pro;
@@ -30,6 +19,7 @@
 .nav-bar-button.inactive, .nav-bar-button.inactive:hover {
 	color: #aaa;
 }
+
 .navbar-default span {
 	align-items: center;
 	display: block;

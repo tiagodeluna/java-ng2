@@ -3,6 +3,15 @@ p, a, label {
 	font-family: Source Sans Pro;
 }
 
+h1, h2 {
+	color: white;
+	font-family: Source Sans Pro;
+	font-size: 2.2em;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
 .page-header {
     align-items: center;
 	background: #BE2C2C;
@@ -43,7 +52,7 @@ p, a, label {
 	font-size: 1em;
 	text-transform: uppercase;
 }
-.accordion .ui-accordion-header /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+.accordion .ui-accordion-header {
     align-items: center;
 	background-color: #BE2C2C;
 	border: none;
@@ -56,13 +65,13 @@ p, a, label {
 	font-weight: 600;
 	height: 60px;
 }
-.accordion .ui-accordion-header a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+.accordion .ui-accordion-header a {
 	color: #white;
 }
-.accordion .ui-accordion-header.ui-state-active /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+.accordion .ui-accordion-header.ui-state-active {
 	background-color: #eee;
 }
-.accordion .ui-accordion-header a /* ui-accordion-header ui-state-default ui-corner-all ui-state-active */ {
+.accordion .ui-accordion-header a {
 	color: white;
 	width: 100%;
 	text-decoration: none;
