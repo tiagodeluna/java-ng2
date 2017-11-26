@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from "../services/customer/customer.service";
+import {OrderService} from "../services/order/order.service";
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,7 +9,7 @@ import {CustomerService} from "../services/customer/customer.service";
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public customerService:CustomerService) { }
+  constructor(public customerService:CustomerService,public orderService:OrderService) { }
 
   ngOnInit() {
 
@@ -22,5 +23,9 @@ export class NavBarComponent implements OnInit {
     }
 
     return 0;
+  }
+
+  hasValidOrder(){
+    return this.orderService.currentRestaurant!==null;
   }
 }

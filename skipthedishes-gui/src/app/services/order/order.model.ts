@@ -1,21 +1,22 @@
-export class Order{
+import {Item} from "./item.model";
+export class Order {
 
-   id:string;
+  id: string;
 
-  date:Date;
+  date: Date;
 
-  total:number;
+  total: number;
 
-   paymentMethod:string;
+  paymentMethod: string;
 
-   reviewText:string;
+  reviewText: string;
 
-  reviewRating:number;
+  reviewRating: number;
 
-   customerId:string;
+  customerId: string;
 
-   restaurantId:string;
+  restaurantId: string;
 
-  items:Item[];
+  items: Item[]=[];
 
 }

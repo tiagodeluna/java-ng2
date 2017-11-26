@@ -4,11 +4,13 @@ import {HomeComponent} from "./home/home.component";
 import {SearchComponent} from "./search/search.component";
 import {FavoritesComponent} from "./favorites/favorites.component";
 import {RestaurantDetailComponent} from "./restaurant-detail/restaurant-detail.component";
+import {OrderConfirmationComponent} from "./order-confirmation/order-confirmation.component";
 
 const routes:Routes=[
   {path:'', component:HomeComponent},
   {path:'search', component:SearchComponent},
   {path:'restaurant', component:RestaurantDetailComponent},
+  {path:'checkout', component:OrderConfirmationComponent},
   {path:'favorites', component:FavoritesComponent}
   ];
 

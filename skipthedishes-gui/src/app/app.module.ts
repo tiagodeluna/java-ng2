@@ -23,6 +23,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import {RouterModule} from "@angular/router";
 import {OrderService} from "./services/order/order.service";
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {OrderService} from "./services/order/order.service";
     DishListComponent,
     RestaurantListComponent,
     FavoritesComponent,
-    RestaurantDetailComponent
+    RestaurantDetailComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,

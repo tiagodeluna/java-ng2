@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-1">{{dish.rating}}</div>
   <div class="col-xs-6">{{dish.name}} {{dish.description}}</div>
-  <div class="col-xs-1"><span class="fa {{getFavIcon()}}" (click)="toggleFavorite()"></span></div>
+  <div class="col-xs-1"><a class="fa {{getFavIcon()}}" (click)="toggleFavorite()"></a></div>
   <div class="col-xs-1">{{dish.price}}</div>
-  <div class="col-xs-2"><span class="fa fa-shopping-cart"></span></div>
+  <div class="col-xs-2"><a class="fa fa-shopping-cart" (click)="addToOrder()"></a></div>
 </div>

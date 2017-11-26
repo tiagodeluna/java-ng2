@@ -1,0 +1,24 @@
+<ng-template *ngIf="currentOrder">
+  <p>
+    {{currentRestaurant.name}}
+    {{currentRestaurant.address}}
+    delivery fee: {{currentRestaurant.deliveryFee}}
+    rating: {{currentRestaurant.rating}}
+    time to wait: {{currentRestaurant.timeToWait}}
+  </p>
+
+  <div class="row" *ngFor="let item of currentOrder.items">
+    <div class="col-xs-1">{{item.dish.rating}}</div>
+    <div class="col-xs-6">{{item.dish.name}} {{item.dish.description}}</div>
+    <div class="col-xs-1"><a class="fa {{getFavIcon()}}" (click)="toggleFavorite()"></a></div>
+    <div class="col-xs-1">{{item.dish.price}}</div>
+    <div class="col-xs-2">{{item.amount}}</div>
+  </div>
+  TOTAL: {{currentOrder.total}}
+
+  <button type="button" class="btn btn-default" (click)="confirmOrder(false)">CASH</button>
+  <button type="button" class="btn btn-success" (click)="confirmOrder(true)">DISH CASH</button>
+</ng-template>
+
+
+

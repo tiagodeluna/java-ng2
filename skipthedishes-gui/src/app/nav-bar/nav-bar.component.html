@@ -8,7 +8,9 @@
         <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/search"><img [src]="'assets/img/search-icon.svg'" alt="image" />Search</a></li>
         <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/favorites"><img [src]="'assets/img/favorites-icon.svg'" alt="image" />Favorites</a></li>
         <li routerLinkActive="active"><a class="nav-bar-button" routerLink="/orders"><img [src]="'assets/img/orders-icon.svg'" alt="image" />Orders</a></li>
-        <!--<li routerLinkActive="active"><a class="nav-bar-button" routerLink="/profile">Profile</a></li>-->
+        <li
+          routerLinkActive="active"><a class="nav-bar-button" routerLink="/checkout" *ngIf="hasValidOrder()">Checkout
+        </a></li>
         <li>{{getCurrentDishCoins() | number}}</li>
       </ul>
     </div>

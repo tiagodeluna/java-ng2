@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CustomerService} from "../../services/customer/customer.service";
 import {Dish} from "../../services/search/dish.model";
+import {OrderService} from "../../services/order/order.service";
 
 @Component({
   selector: 'app-dish-item-list',
@@ -13,7 +14,7 @@ export class DishItemListComponent implements OnInit {
 
   @Input() dish:Dish = new Dish();
 
-  constructor(private customerService:CustomerService) { }
+  constructor(private customerService:CustomerService,private orderService:OrderService) { }
 
   ngOnInit() {
   }
@@ -37,6 +38,10 @@ export class DishItemListComponent implements OnInit {
     }else{
       this.customerService.addFavoriteDish(this.dish);
     }
+  }
+
+  addToOrder(){
+    this.orderService.addDish(this.dish);
   }
 
 
