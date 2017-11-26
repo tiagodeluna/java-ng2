@@ -40,6 +40,13 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.save(orderRecovered);
     }
 
+
+    public Order saveAndFinishOrder(Order order) throws InvalidOrderTotalException {
+        Order savedOrder = this.save(order);
+        this.finishOrder(savedOrder.getId(),savedOrder.getPaymentMethod());
+        return savedOrder;
+    }
+
     @Override
     public Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException {
         Boolean successfulPayment;

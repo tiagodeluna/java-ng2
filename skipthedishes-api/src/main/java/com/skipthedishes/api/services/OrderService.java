@@ -16,6 +16,8 @@ public interface OrderService {
 
     Boolean finishOrder(String id, PaymentMethodsEnum paymentMethod) throws InvalidOrderTotalException;
 
+    Order saveAndFinishOrder(Order order) throws InvalidOrderTotalException;
+
     Order save(Order order);
 
     Order update(String id, Order order);

@@ -92,6 +92,12 @@ public class CustomerResource {
         return customerList.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(customerList);
 
     }
+    @GetMapping("{customerId}")
+    public ResponseEntity<Customer> findOne(@PathVariable String customerId) {
+        Customer customer = customerRepository.findOne(customerId);
+        return customer ==null ? ResponseEntity.notFound().build() : ResponseEntity.ok(customer);
+
+    }
 
     @GetMapping(params = "name")
     public ResponseEntity<List<Customer>> findByText(@RequestParam(name = "name") String name) {

@@ -17,6 +17,7 @@ export class CustomerService{
   dishes:Dish[]=[];
   restaurants:Restaurant[]=[];
 
+
   constructor(private http:HttpClient){
 
   }
@@ -86,6 +87,12 @@ export class CustomerService{
     }}).subscribe((customer:Customer)=>{
       this.currentCustomer.favoriteDishes = customer.favoriteDishes;
     })
+  }
+
+  updateCurrentCustomer(){
+    this.http.get<Customer>("api/customers/"+this.currentCustomer.id).subscribe((result:Customer)=>{
+      this.currentCustomer.dishCoin = result.dishCoin;
+    });
   }
 
 }

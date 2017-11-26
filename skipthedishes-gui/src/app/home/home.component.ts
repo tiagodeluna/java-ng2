@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "../services/customer/customer.model";
 import {CustomerService} from "../services/customer/customer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
 
   customers:Customer[];
-  constructor(private customerService:CustomerService) { }
+  constructor(private customerService:CustomerService,private router:Router) { }
 
 
 
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   }
   setCurrentCustomer(customer:Customer){
       this.customerService.currentCustomer = customer;
+      this.router.navigate(['/search']);
   }
 
   isCurrentCustomer(customer:Customer):string{

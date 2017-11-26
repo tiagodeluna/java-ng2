@@ -50,10 +50,17 @@ export class OrderService {
       window.alert("Order Saved!");
       this.dishes =[];
       this.currentRestaurant = null;
+      this.customerService.updateCurrentCustomer();
       this.router.navigate(["/search"]);
     });
 
 
+  }
+
+  getRandomIntInclusive() {
+    var min = Math.ceil(0);
+    var max = Math.floor(5);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
   }
 
 
@@ -61,16 +68,24 @@ export class OrderService {
     if(!this.currentRestaurant){
       return;
     }
+    if(this.dishes.length==0){
+      this.router.navigate(["/search"]);
+    }
+
     var order:Order = new Order();
 
     order.restaurantId = this.currentRestaurant.id;
     order.customerId = this.customerService.currentCustomer.id;
+    order.reviewRating = this.getRandomIntInclusive();
     var dishesAdded: { [key: string]: Item } = {};
+
+
     this.dishes.forEach((d: Dish) => {
       var item: Item = dishesAdded[d.id];
       var justAdded:boolean = false;
       if (!item) {
         item = new Item();
+        item.reviewRating = this.getRandomIntInclusive();
         justAdded = true;
       }
       item.dish = d;

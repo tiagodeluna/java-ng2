@@ -1,9 +1,6 @@
 package com.skipthedishes.api.resources;
 
-import com.skipthedishes.api.entities.Dish;
-import com.skipthedishes.api.entities.Order;
-import com.skipthedishes.api.entities.PaymentMethodsEnum;
-import com.skipthedishes.api.entities.Restaurant;
+import com.skipthedishes.api.entities.*;
 import com.skipthedishes.api.exceptions.InvalidOrderTotalException;
 import com.skipthedishes.api.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +22,13 @@ public class OrderResource {
     @PostMapping
     public ResponseEntity<Order> create(@Valid @RequestBody Order order) {
         order.setDate(LocalDateTime.now());
+        order.setStatus(OrderStatusEnum.PROCESSING);
         Order orderSaved = orderService.save(order);
+        try {
+            orderService.finishOrder(orderSaved.getId(),orderSaved.getPaymentMethod());
+        } catch (InvalidOrderTotalException e) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(orderSaved);
     }
 
