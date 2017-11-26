@@ -6,6 +6,7 @@ import com.skipthedishes.api.entities.Restaurant;
 import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -37,7 +38,7 @@ public class RestaurantRepositoryImpl implements RestaurantRepositoryQuery {
         query.skip(offset);
         query.limit(size);
         query.fields().exclude("dishes");
-
+        query.with(new Sort(Sort.Direction.DESC,"rating"));
         return mongoTemplate.find(query, Restaurant.class);
     }
 

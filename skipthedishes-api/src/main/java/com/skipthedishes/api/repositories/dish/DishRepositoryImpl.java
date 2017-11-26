@@ -6,6 +6,7 @@ import com.skipthedishes.api.entities.Dish;
 import com.skipthedishes.api.entities.TagsEnum;
 import com.skipthedishes.api.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -30,6 +31,7 @@ public class DishRepositoryImpl implements DishRepositoryQuery {
                 );
         Query query = Query.query(criteriaDefinition);
         query.skip(offset).limit(size);
+        query.with(new Sort(Sort.Direction.DESC,"rating"));
         return mongoTemplate.find(query, Dish.class);
     }
 
