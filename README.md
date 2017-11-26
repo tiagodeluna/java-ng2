@@ -17,7 +17,7 @@ Build the future of food delivery app that scales to millions of users Important
 * Mongo DB
 
 ## Specifications
-#####All the sites that have been searched, both in Brazil and in Canada, follow the same philosophy, that is, filters by:
+All the sites that have been searched, both in Brazil and in Canada, follow the same philosophy, that is, filters by:
 * Kind of food
 * Location
 * Lowest or highest price
