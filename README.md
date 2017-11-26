@@ -40,12 +40,12 @@ These points are called Dish Coins. The score is calculated over the value of ea
 
 This score belongs to the user, points obtained by the purchase in a restaurant X can be used to redeem in the restaurant Y.
 
-## How to Pay with DishCoins
+## How to Pay with DishCoins?
 
 Each dish has its value in cash and also a value on DishCoins - calculated by the system. The user views the dish price in both cash and points.
 When making an order, if the user has enough points, the option "Pay with Dish Coins" is then enabled.
 
-## How to execute
+## How to execute?
 To execute the project, run the commands bellow:
 ```shell
 mvn package
