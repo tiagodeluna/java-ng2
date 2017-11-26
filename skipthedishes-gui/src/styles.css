@@ -125,3 +125,8 @@ h2 {
   display: table-cell;
   vertical-align: middle;
 }
+
+.center-text{
+  text-align: center;
+}
+
