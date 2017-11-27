@@ -7,7 +7,7 @@ Build the future of food delivery app that scales to millions of users Important
 * [Diego Santos](https://www.behance.net/santosdiego) -  https://www.linkedin.com/in/osantosdiego/
 * [Igor Harã](https://github.com/igorhara) - https://www.linkedin.com/in/igorhara/
 * [Leonardo Dias](https://github.com/leonardodias76) - https://www.linkedin.com/in/leonardo-dias-oliveira/
-* [Tiago Luna](https://github.com/tiagodeluna/) - https://www.linkedin.com/in/tiagodeluna/?locale=en_US
+* [Tiago Luna](https://github.com/tiagodeluna/) - https://www.linkedin.com/in/tiagodeluna/
 
 ## Technologies
 * Angular 2
